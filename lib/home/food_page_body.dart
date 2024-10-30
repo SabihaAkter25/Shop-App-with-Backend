@@ -26,7 +26,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       margin: const EdgeInsets.only(left: 5,right: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
-        color: Colors.tealAccent
+        color: index.isEven? Colors.tealAccent : Colors.blue
       ),
     );
   }
