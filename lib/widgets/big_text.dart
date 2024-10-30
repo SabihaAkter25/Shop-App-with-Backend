@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BigText extends StatelessWidget {
@@ -16,6 +15,7 @@ class BigText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
         text,
+    maxLines: 1,
     overflow: overflow,
       style: TextStyle(
         color: color,
