@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app_with_backend/widgets/big_text.dart';
+import 'package:shop_app_with_backend/widgets/icon_and_text.dart';
+import 'package:shop_app_with_backend/widgets/small_text.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
@@ -8,11 +11,13 @@ class FoodPageBody extends StatefulWidget {
 }
 
 class _FoodPageBodyState extends State<FoodPageBody> {
+ PageController pageController = PageController(viewportFraction: 0.85);
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.sizeOf(context).height*0.3,
+      height: MediaQuery.sizeOf(context).height*0.35,
       child: PageView.builder(
+        controller: pageController,
         itemCount: 5,
           itemBuilder:(context,position)
       {
@@ -21,13 +26,66 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     );
   }
   Widget _buildPageItem(int index){
-    return Container(
+    return Stack(
+      children: [
+      Container(
       height: 220,
-      margin: const EdgeInsets.only(left: 5,right: 5),
+      margin: const EdgeInsets.only(left: 10,right: 10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        color: index.isEven? Colors.tealAccent : Colors.blue
+          borderRadius: BorderRadius.circular(30),
+          color: index.isEven? Colors.tealAccent : Colors.blue,
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage("assets/images/food1.jpg",),
+          )
       ),
+    ),
+    Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+      height: 140,
+      margin: const EdgeInsets.only(left: 30,right: 30,bottom: 30),
+      decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(30),
+      color: Colors.white,
+      ),
+        child: Container(
+          padding: const EdgeInsets.only(top: 15, left:15,right: 15 ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              BigText(text: "Chinese Side"),
+              SizedBox(height: 10,),
+              Row(
+                children: [
+                  Wrap(
+                    children: List.generate(5, (index)=> Icon(Icons.star,color: Colors.teal.shade200,),
+                    ),
+                  ),
+                  const SizedBox(width: 10,),
+                  SmallText(text: "4.5",),
+                  const SizedBox(width: 10,),
+                  SmallText(text: "1287",),
+                  const SizedBox(width: 10,),
+                  SmallText(text: "comments",),
+                ],
+              ),
+              SizedBox(height: 20,),
+
+              const Row(
+                children: [
+                IconAndText(icon: Icons.circle_sharp,
+                    text: "Normal",
+                     iconColor: Colors.amberAccent
+                ),
+              ],)
+
+            ],
+          ),
+        ),
+      ),
+      ),
+      ],
     );
   }
 }
