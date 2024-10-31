@@ -7,13 +7,17 @@ class IconAndText extends StatelessWidget {
   final IconData icon;
   final String text;
   final Color iconColor;
+
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       children: [
-        Icon(icon ,),
-     SizedBox(width: 5,),
-        SmallText(text: text,)
+        Icon(
+          icon,
+          color: iconColor,  // Apply the iconColor here
+        ),
+        SizedBox(width: 5),
+        SmallText(text: text),
       ],
     );
   }
