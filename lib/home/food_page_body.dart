@@ -48,9 +48,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     }),
     ),
 
-        new DotsIndicator(
+         DotsIndicator(
           dotsCount: 5,
-          position: _currPageValue.round(),
+          position: _currPageValue,
           decorator: DotsDecorator(
             activeColor:Colors.tealAccent.shade700 ,
             size: const Size.square(9.0),
