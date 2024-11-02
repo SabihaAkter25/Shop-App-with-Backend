@@ -1,3 +1,4 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app_with_backend/widgets/big_text.dart';
 import 'package:shop_app_with_backend/widgets/icon_and_text.dart';
@@ -33,15 +34,31 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.sizeOf(context).height*0.35,
-      child: PageView.builder(
-        controller: pageController,
-        itemCount: 5,
-          itemBuilder:(context,position)
-      {
-        return _buildPageItem(position);
-      }),
+    return Column(
+      children: [
+
+    SizedBox(
+    height: MediaQuery.sizeOf(context).height*0.35,
+    child: PageView.builder(
+    controller: pageController,
+    itemCount: 5,
+    itemBuilder:(context,position)
+    {
+    return _buildPageItem(position);
+    }),
+    ),
+
+        new DotsIndicator(
+          dotsCount: 5,
+          position: _currPageValue.round(),
+          decorator: DotsDecorator(
+            activeColor:Colors.tealAccent.shade700 ,
+            size: const Size.square(9.0),
+            activeSize: const Size(18.0, 9.0),
+            activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+          ),
+        ),
+      ],
     );
   }
   Widget _buildPageItem(int index){
