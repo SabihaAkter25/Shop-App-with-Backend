@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_app_with_backend/utils/dimantions.dart';
 import 'package:shop_app_with_backend/widgets/big_text.dart';
 import 'package:shop_app_with_backend/widgets/icon_and_text.dart';
 import 'package:shop_app_with_backend/widgets/small_text.dart';
@@ -15,7 +16,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
  PageController pageController = PageController(viewportFraction: 0.85);
  var _currPageValue = 0.8;
  final double _scaleFactor = 0.8;
- final double _height =220;
+ final double _height =Dimantions.pageViewContainer;
 
  @override
   void initState(){
@@ -88,7 +89,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       child: Stack(
         children: [
         Container(
-        height: 220,
+        height: Dimantions.pageViewContainer,
         margin: const EdgeInsets.only(left: 10,right: 10),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
@@ -102,7 +103,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       Align(
         alignment: Alignment.bottomCenter,
         child: Container(
-        height: 140,
+        height: Dimantions.pageViewTextContainer,
         margin: const EdgeInsets.only(left: 30,right: 30,bottom: 30),
         decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
