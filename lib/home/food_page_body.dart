@@ -39,7 +39,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       children: [
 
     SizedBox(
-    height: MediaQuery.sizeOf(context).height*0.35,
+    height: Dimantions.pageView,
     child: PageView.builder(
     controller: pageController,
     itemCount: 5,
