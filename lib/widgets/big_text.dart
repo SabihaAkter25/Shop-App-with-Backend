@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
+
 import '../utils/dimantions.dart';
 
 class BigText extends StatelessWidget {
@@ -8,23 +10,22 @@ class BigText extends StatelessWidget {
   double size;
   TextOverflow overflow;
 
-   BigText({super.key,  this.color, required this.text,
-   this.overflow=TextOverflow.ellipsis,
-     this.size=17
-   });
+  BigText({super.key, this.color, required this.text,
+    this.overflow = TextOverflow.ellipsis,
+    this.size = 0,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Text(
-        text,
-    maxLines: 1,
-    overflow: overflow,
+      text,
+      maxLines: 1,
+      overflow: overflow,
       style: TextStyle(
         color: color,
         fontWeight: FontWeight.w400,
-        fontSize: Dimantions.font20,
+        fontSize: size == 0 ? Dimantions.font20 : size,
       ),
-
     );
   }
 }

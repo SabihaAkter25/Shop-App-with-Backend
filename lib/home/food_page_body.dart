@@ -126,7 +126,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           ]
         ),
           child: Container(
-            padding: EdgeInsets.only(top: Dimantions.height15, left:15,right: 15 ),
+            padding: EdgeInsets.only(top: Dimantions.height10, left:5,right: 5 ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -148,7 +148,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     SmallText(text: "comments",),
                   ],
                 ),
-                SizedBox(height: Dimantions.height10),
+                SizedBox(width: Dimantions.width10),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -157,13 +157,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       text: "Normal",
                        iconColor: Colors.amberAccent,
                   ),
-                    SizedBox(width: MediaQuery.sizeOf(context).width*0.02),
+                    SizedBox(width: Dimantions.width10),
                     const IconAndText(
                       icon: Icons.location_on_sharp,
                       text: "1.7Km",
                       iconColor: Colors.cyan,
                     ),
-                    SizedBox(width: MediaQuery.sizeOf(context).width*0.02),
+                    SizedBox(width: Dimantions.width10),
       
                     const IconAndText(
                       icon: Icons.access_time,
