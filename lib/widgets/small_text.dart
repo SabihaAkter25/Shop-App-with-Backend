@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app_with_backend/utils/dimantions.dart';
 
 class SmallText extends StatelessWidget {
   Color? color;
@@ -9,7 +10,7 @@ class SmallText extends StatelessWidget {
 
   SmallText({super.key,  this.color=Colors.black26, required this.text,
 this.height=1.2,
-    this.size=16,
+    this.size=12,
   });
 
   @override
@@ -20,7 +21,7 @@ this.height=1.2,
       style: TextStyle(
         color: color,
         fontWeight: FontWeight.w400,
-        fontSize: size,
+        fontSize: Dimantions.font10,
         height: height
       ),
 

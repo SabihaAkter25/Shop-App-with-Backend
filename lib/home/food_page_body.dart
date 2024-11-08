@@ -126,38 +126,38 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           ]
         ),
           child: Container(
-            padding: const EdgeInsets.only(top: 15, left:15,right: 15 ),
+            padding: EdgeInsets.only(top: Dimantions.height15, left:15,right: 15 ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                BigText(text: "Chinese Side"),
-                const SizedBox(height: 10,),
+
+            BigText(text: "Chinese Side"),
+                SizedBox(height: Dimantions.height10),
                 Row(
                   children: [
+
                     Wrap(
                       children: List.generate(5, (index)=> Icon(Icons.star,color: Colors.teal.shade200,),
                       ),
                     ),
-                    const SizedBox(width: 10,),
+                    SizedBox(height: Dimantions.height10),
                     SmallText(text: "4.5",),
-                    const SizedBox(width: 10,),
+                    SizedBox(height: Dimantions.height10),
                     SmallText(text: "1287",),
-                    const SizedBox(width: 10,),
+                    SizedBox(height: Dimantions.height10),
                     SmallText(text: "comments",),
                   ],
                 ),
-                SizedBox(height: MediaQuery.sizeOf(context).height*0.01),
-      
+                SizedBox(height: Dimantions.height10),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                   const IconAndText(
-                    icon: Icons.circle_rounded,
+                     icon: Icons.circle_rounded,
                       text: "Normal",
                        iconColor: Colors.amberAccent,
                   ),
                     SizedBox(width: MediaQuery.sizeOf(context).width*0.02),
-      
                     const IconAndText(
                       icon: Icons.location_on_sharp,
                       text: "1.7Km",
@@ -170,8 +170,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       text: "32 min",
                       iconColor: Colors.redAccent,
                     ),
-                ],)
-      
+                ],),
+
               ],
             ),
           ),

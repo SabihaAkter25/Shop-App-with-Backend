@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/dimantions.dart';
+
 class BigText extends StatelessWidget {
   Color? color;
   final String text;
@@ -8,7 +10,7 @@ class BigText extends StatelessWidget {
 
    BigText({super.key,  this.color, required this.text,
    this.overflow=TextOverflow.ellipsis,
-     this.size=20
+     this.size=17
    });
 
   @override
@@ -20,7 +22,7 @@ class BigText extends StatelessWidget {
       style: TextStyle(
         color: color,
         fontWeight: FontWeight.w400,
-        fontSize: size,
+        fontSize: Dimantions.font20,
       ),
 
     );
