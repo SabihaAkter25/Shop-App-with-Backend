@@ -92,7 +92,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         height: Dimantions.pageViewContainer,
         margin: const EdgeInsets.only(left: 10,right: 10),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(Dimantions.radious30),
+            borderRadius: BorderRadius.circular(Dimantions.radius30),
             color: index.isEven? Colors.tealAccent : Colors.blue,
             image: const DecorationImage(
               fit: BoxFit.cover,
@@ -106,7 +106,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         height: Dimantions.pageViewTextContainer,
         margin:  EdgeInsets.only(left: Dimantions.width20,right: Dimantions.width20,bottom: 30),
         decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(Dimantions.radious20),
+        borderRadius: BorderRadius.circular(Dimantions.radius20),
         color: Colors.white,
           boxShadow: const [
             BoxShadow(
@@ -148,7 +148,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     SmallText(text: "comments",),
                   ],
                 ),
-                SizedBox(width: Dimantions.width10),
+                SizedBox(height: Dimantions.height10),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

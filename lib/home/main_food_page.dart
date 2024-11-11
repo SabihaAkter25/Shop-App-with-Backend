@@ -48,7 +48,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       color:Colors.tealAccent.shade700,
 
                     ),
-                    child: const Icon(Icons.search,color: Colors.white,size: 24,),
+                    child: Icon(Icons.search,color: Colors.white,size: Dimantions.iconSize24,),
                   ),
                 )
               ],

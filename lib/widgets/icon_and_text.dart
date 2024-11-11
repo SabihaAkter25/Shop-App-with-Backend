@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:shop_app_with_backend/utils/dimantions.dart';
 import 'package:shop_app_with_backend/widgets/small_text.dart';
 
 class IconAndText extends StatelessWidget {
@@ -14,7 +15,9 @@ class IconAndText extends StatelessWidget {
       children: [
         Icon(
           icon,
-          color: iconColor,  // Apply the iconColor here
+          color: iconColor, // Apply the iconColor here
+        size: Dimantions.iconSize24,
+
         ),
         SizedBox(width: 5),
         SmallText(text: text),

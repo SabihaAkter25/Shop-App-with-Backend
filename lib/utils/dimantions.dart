@@ -22,8 +22,11 @@ class Dimantions {
   static double width20 = screenHeight / 41;
   static double width30 = screenHeight / 27.33;
 
-  static double radious15 = screenHeight / 54.27;
-  static double radious20 = screenHeight / 41;
-  static double radious30 = screenHeight / 27.33;
+  static double radius15 = screenHeight / 54.27;
+  static double radius20 = screenHeight / 41;
+  static double radius30 = screenHeight / 27.33;
+
+  static double iconSize24 = screenHeight /34.17;
+
 
 }
