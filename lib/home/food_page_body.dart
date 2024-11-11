@@ -21,7 +21,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
  @override
   void initState(){
     super.initState();
-    pageController.addListener((){
+     pageController.addListener((){
       setState(() {
         _currPageValue=  pageController.page!;
       });
