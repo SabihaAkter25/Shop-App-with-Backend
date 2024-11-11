@@ -92,7 +92,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         height: Dimantions.pageViewContainer,
         margin: const EdgeInsets.only(left: 10,right: 10),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(Dimantions.radious30),
             color: index.isEven? Colors.tealAccent : Colors.blue,
             image: const DecorationImage(
               fit: BoxFit.cover,
@@ -104,9 +104,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         alignment: Alignment.bottomCenter,
         child: Container(
         height: Dimantions.pageViewTextContainer,
-        margin: const EdgeInsets.only(left: 30,right: 30,bottom: 30),
+        margin:  EdgeInsets.only(left: Dimantions.width20,right: Dimantions.width20,bottom: 30),
         decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(Dimantions.radious20),
         color: Colors.white,
           boxShadow: const [
             BoxShadow(
@@ -170,7 +170,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       text: "32 min",
                       iconColor: Colors.redAccent,
                     ),
-                ],),
+                ],
+
+                 ),
 
               ],
             ),
