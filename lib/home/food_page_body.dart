@@ -38,6 +38,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     return Column(
       children: [
 
+        //Slider section
     SizedBox(
     height: Dimantions.pageView,
     child: PageView.builder(
@@ -48,7 +49,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     return _buildPageItem(position);
     }),
     ),
-
+         //Dots
          DotsIndicator(
           dotsCount: 5,
           position: _currPageValue,
@@ -59,6 +60,22 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
           ),
         ),
+
+        //Popular text
+        SizedBox(
+          height: Dimantions.height30,
+        ),
+        Container(
+          margin: EdgeInsets.only(left:Dimantions.height30 ),
+          child:   Row(
+            children: [
+              BigText(text: "Popular"),
+            ],
+
+        )
+
+        )
+
       ],
     );
   }
