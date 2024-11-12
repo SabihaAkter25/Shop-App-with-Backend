@@ -68,15 +68,18 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         Container(
           margin: EdgeInsets.only(left:Dimantions.height30 ),
           child:   Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               BigText(text: "Popular"),
               SizedBox(width: Dimantions.width10,),
               Container(
+                margin: const EdgeInsets.only(bottom: 3),
                 child: BigText(text:".",),
               ),
               SizedBox(width: Dimantions.width10,),
 
               Container(
+                margin: const EdgeInsets.only(bottom: 2),
                 child: SmallText(text: 'Food Paring',),
               ),
               SizedBox(width: Dimantions.width10,),
