@@ -70,6 +70,19 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           child:   Row(
             children: [
               BigText(text: "Popular"),
+              SizedBox(width: Dimantions.width10,),
+              Container(
+                child: BigText(text:".",),
+              ),
+              SizedBox(width: Dimantions.width10,),
+
+              Container(
+                child: SmallText(text: 'Food Paring',),
+              ),
+              SizedBox(width: Dimantions.width10,),
+
+
+
             ],
 
         )
