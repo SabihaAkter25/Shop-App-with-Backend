@@ -83,15 +83,27 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 child: SmallText(text: 'Food Paring',),
               ),
               SizedBox(width: Dimantions.width10,),
+              ListView.builder(
+                itemCount: 10,
+                  itemBuilder: (context,index) {
+                    return Container(
+                      margin: EdgeInsets.only(left:Dimantions.width20,right: Dimantions.width20),
+                      child: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
 
-
-
-            ],
-
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  }
+                  )
+            ]
         )
-
         )
-
       ],
     );
   }
