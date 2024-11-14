@@ -62,9 +62,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         ),
 
         //Popular text
-        SizedBox(
-          height: Dimantions.height30,
-        ),
+        SizedBox(height: Dimantions.height30,),
         Container(
           margin: EdgeInsets.only(left:Dimantions.height30 ),
           child:   Row(
@@ -83,27 +81,37 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 child: SmallText(text: 'Food Paring',),
               ),
               SizedBox(width: Dimantions.width10,),
-              ListView.builder(
-                itemCount: 10,
-                  itemBuilder: (context,index) {
-                    return Container(
-                      margin: EdgeInsets.only(left:Dimantions.width20,right: Dimantions.width20),
-                      child: Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
 
-                            ),
-                          )
-                        ],
-                      ),
-                    );
-                  }
-                  )
             ]
         )
-        )
+        ),
+        // list of ffod and images
+       Container(
+         height: 700,
+         child:  ListView.builder(
+             itemCount: 10,
+             itemBuilder: (context,index) {
+               return Container(
+                 margin: EdgeInsets.only(left:Dimantions.width20,right: Dimantions.width20,),
+                 child: Row(
+                   children: [
+                     Container(
+
+                       decoration: BoxDecoration(
+                           borderRadius: BorderRadius.circular(Dimantions.radius20),
+                           color: Colors.white30,
+                           image: DecorationImage(image: AssetImage("assets/images/food1.png"))
+
+                       ),
+                       height: 120,
+                       width: 120,
+                     )
+                   ],
+                 ),
+               );
+             }
+         ),
+       )
       ],
     );
   }
