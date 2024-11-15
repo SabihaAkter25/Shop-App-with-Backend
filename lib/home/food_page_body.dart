@@ -86,32 +86,37 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         )
         ),
         // list of ffod and images
-       Container(
-         height: 700,
-         child:  ListView.builder(
-             itemCount: 10,
-             itemBuilder: (context,index) {
-               return Container(
-                 margin: EdgeInsets.only(left:Dimantions.width20,right: Dimantions.width20,),
-                 child: Row(
-                   children: [
-                     Container(
+        Container(
+          height: 300,
+          child: ListView.builder(
+            physics: AlwaysScrollableScrollPhysics(),
+            shrinkWrap: true,
+            padding: EdgeInsets.only(bottom: 20.0), // Adds space at the bottom
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(left: Dimantions.width20, right: Dimantions.width20),
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(Dimantions.radius20),
+                        color: Colors.black12,
+                        image: DecorationImage(
+                          image: AssetImage("assets/images/food1.png"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      height: 120,
+                      width: 120,
+                    )
+                  ],
+                ),
+              );
+            },
+          ),
+        )
 
-                       decoration: BoxDecoration(
-                           borderRadius: BorderRadius.circular(Dimantions.radius20),
-                           color: Colors.white30,
-                           image: DecorationImage(image: AssetImage("assets/images/food1.png"))
-
-                       ),
-                       height: 120,
-                       width: 120,
-                     )
-                   ],
-                 ),
-               );
-             }
-         ),
-       )
       ],
     );
   }
@@ -149,7 +154,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             color: index.isEven? Colors.tealAccent : Colors.blue,
             image: const DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage("assets/images/food1.jpg",),
+              image: AssetImage("assets/images/food3.jpg",),
             )
         ),
       ),
@@ -159,7 +164,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         height: Dimantions.pageViewTextContainer,
         margin:  EdgeInsets.only(left: Dimantions.width20,right: Dimantions.width20,bottom: 30),
         decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(Dimantions.radius20),
+          borderRadius: BorderRadius.circular(Dimantions.radius20),
         color: Colors.white,
           boxShadow: const [
             BoxShadow(
