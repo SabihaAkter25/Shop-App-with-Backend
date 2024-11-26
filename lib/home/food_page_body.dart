@@ -129,7 +129,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                        SizedBox(height: Dimantions.height10,),
                          SmallText(text: "With chinese characteristics"),
                          SizedBox(height: Dimantions.height10,),
-                         Row(
+                         const Row(
                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                            children: [
                              IconAndText(
