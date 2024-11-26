@@ -122,10 +122,33 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                         ),
                      child: Padding(padding: EdgeInsets.only(left: Dimantions.width10),
                      child: Column(
+                       crossAxisAlignment:CrossAxisAlignment.start,
+                       mainAxisAlignment:MainAxisAlignment.start,
                        children: [
                          BigText(text: "Nutritious fruit meal "),
+                       SizedBox(height: Dimantions.height10,),
                          SmallText(text: "With chinese characteristics"),
-
+                         SizedBox(height: Dimantions.height10,),
+                         Row(
+                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                           children: [
+                             IconAndText(
+                               icon: Icons.circle_rounded,
+                               text: "Normal",
+                               iconColor: Colors.amberAccent,
+                             ),
+                             IconAndText(
+                               icon: Icons.location_on_sharp,
+                               text: "1.7Km",
+                               iconColor: Colors.cyan,
+                             ),
+                             IconAndText(
+                               icon: Icons.access_time,
+                               text: "32 min",
+                               iconColor: Colors.redAccent,
+                             ),
+                           ],
+                         ),
                        ],
                      ),
                      ),
