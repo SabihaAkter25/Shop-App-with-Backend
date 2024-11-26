@@ -112,13 +112,23 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       width: 120,
                     ),
                     //Text section
-                    Container(
-                      height:100,
-                      width:280,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(topRight:Radius.circular(Dimantions.radius20),
-                            bottomRight:Radius.circular(Dimantions.radius20)),
-                      color: Colors.white,
+                    Expanded(
+                      child: Container(
+                        height:100,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(topRight:Radius.circular(Dimantions.radius20),
+                              bottomRight:Radius.circular(Dimantions.radius20)),
+                        color: Colors.white,
+                        ),
+                     child: Padding(padding: EdgeInsets.only(left: Dimantions.width10),
+                     child: Column(
+                       children: [
+                         BigText(text: "Nutritious fruit meal "),
+                         SmallText(text: "With chinese characteristics"),
+
+                       ],
+                     ),
+                     ),
                       ),
                     )
 

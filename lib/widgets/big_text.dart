@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
-
 import '../utils/dimantions.dart';
 
 class BigText extends StatelessWidget {
