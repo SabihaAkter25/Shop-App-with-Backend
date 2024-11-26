@@ -98,6 +98,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 margin: EdgeInsets.only(left: Dimantions.width20, right: Dimantions.width20,bottom: Dimantions.height10),
                 child: Row(
                   children: [
+                    //Image section
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(Dimantions.radius20),
@@ -110,6 +111,18 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       height: 120,
                       width: 120,
                     ),
+                    //Text section
+                    Container(
+                      height:100,
+                      width:280,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(topRight:Radius.circular(Dimantions.radius20),
+                            bottomRight:Radius.circular(Dimantions.radius20)),
+                      color: Colors.white,
+                      ),
+                    )
+
+
                   ],
                 ),
               );
@@ -196,20 +209,20 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       ],
                     ),
                     SizedBox(height: Dimantions.height10),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const IconAndText(
+                        IconAndText(
                           icon: Icons.circle_rounded,
                           text: "Normal",
                           iconColor: Colors.amberAccent,
                         ),
-                        const IconAndText(
+                        IconAndText(
                           icon: Icons.location_on_sharp,
                           text: "1.7Km",
                           iconColor: Colors.cyan,
                         ),
-                        const IconAndText(
+                        IconAndText(
                           icon: Icons.access_time,
                           text: "32 min",
                           iconColor: Colors.redAccent,
