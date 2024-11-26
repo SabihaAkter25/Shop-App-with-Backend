@@ -21,7 +21,15 @@ decoration: const BoxDecoration(
       image:AssetImage("assets/images/food2.jpg"),
   )
 ),
-              ) )
+              ) ),
+          Positioned(
+              left: Dimantions.width20,
+              right: Dimantions.width20,
+              child:Row(
+            children: [
+              
+            ],
+          ) )
         ],
       ),
     );
