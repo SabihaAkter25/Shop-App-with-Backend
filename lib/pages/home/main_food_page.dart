@@ -2,8 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app_with_backend/widgets/big_text.dart';
 import 'package:shop_app_with_backend/widgets/small_text.dart';
-
-import '../utils/dimantions.dart';
+import '../../utils/dimantions.dart';
 import 'food_page_body.dart';
 
 class MainFoodPage extends StatefulWidget {
