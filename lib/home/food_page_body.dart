@@ -87,6 +87,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ],
             ),
           ),
+          SizedBox(height: Dimantions.height15),
           // List of food and images
           ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
@@ -108,13 +109,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      height: 120,
-                      width: 120,
+                      height: Dimantions.listViewSize,
+                      width:Dimantions.listViewSize,
                     ),
                     //Text section
                     Expanded(
                       child: Container(
-                        height:100,
+                        height:Dimantions.listViewTextContSize,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(topRight:Radius.circular(Dimantions.radius20),
                               bottomRight:Radius.circular(Dimantions.radius20)),
