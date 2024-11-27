@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app_with_backend/utils/dimantions.dart';
 import 'package:shop_app_with_backend/widgets/app_icon.dart';
+import 'package:shop_app_with_backend/widgets/big_text.dart';
 import '../../widgets/app_column.dart';
 
 class PopularFoodDetail extends StatelessWidget {
@@ -54,7 +55,14 @@ decoration: const BoxDecoration(
                 ),
                 color: Colors.white,
               ),
-              child: const AppColumn(text: "Chinese Side",),
+              child:  Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AppColumn(text: "Chinese Side",),
+                  SizedBox(height: Dimantions.height20,),
+                  BigText(text: "Introduced"),
+                ],
+              )
           ),
           ),
         ],
