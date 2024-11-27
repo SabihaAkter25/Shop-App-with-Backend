@@ -42,7 +42,8 @@ decoration: const BoxDecoration(
           Positioned(
             left: 0,
             right: 0,
-            top: Dimantions.popularFoodImgSize,
+            bottom: 0,
+            top: Dimantions.popularFoodImgSize-20,
             child: Container(
               padding: EdgeInsets.only(
                 left: Dimantions.width20,
@@ -50,7 +51,11 @@ decoration: const BoxDecoration(
                 top: Dimantions.height20,
               ),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimantions.radius20),
+                borderRadius: BorderRadius.only(
+                  topRight:Radius.circular(Dimantions.radius20),
+                  topLeft:Radius.circular(Dimantions.radius20),
+                ),
+                color: Colors.white,
               ),
               child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
