@@ -14,6 +14,18 @@ class AppIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      height: size,
+      width: size,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(size/2),
+     color:backgroundColor
+      ),
+      child:Icon(
+        icon,
+        color: iconcolor,
+        size: size,
+      ) ,
+    );
   }
 }
