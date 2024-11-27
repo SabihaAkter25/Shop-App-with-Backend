@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app_with_backend/utils/dimantions.dart';
 import 'package:shop_app_with_backend/widgets/app_icon.dart';
-
-import '../../widgets/big_text.dart';
-import '../../widgets/icon_and_text.dart';
-import '../../widgets/small_text.dart';
+import '../../widgets/app_column.dart';
 
 class PopularFoodDetail extends StatelessWidget {
   const PopularFoodDetail({super.key});
@@ -57,53 +54,7 @@ decoration: const BoxDecoration(
                 ),
                 color: Colors.white,
               ),
-              child:  Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  BigText(text: "Chinese Side"),
-                  SizedBox(height: Dimantions.height10),
-                  Row(
-                    children: [
-                      Wrap(
-                        children: List.generate(
-                          5,
-                              (index) => Icon(
-                            Icons.star,
-                            color: Colors.teal.shade200,
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: Dimantions.width10),
-                      SmallText(text: "4.5"),
-                      SizedBox(width: Dimantions.width10),
-                      SmallText(text: "1287"),
-                      SizedBox(width: Dimantions.width10),
-                      SmallText(text: "comments"),
-                    ],
-                  ),
-                  SizedBox(height: Dimantions.height10),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconAndText(
-                        icon: Icons.circle_rounded,
-                        text: "Normal",
-                        iconColor: Colors.amberAccent,
-                      ),
-                      IconAndText(
-                        icon: Icons.location_on_sharp,
-                        text: "1.7Km",
-                        iconColor: Colors.cyan,
-                      ),
-                      IconAndText(
-                        icon: Icons.access_time,
-                        text: "32 min",
-                        iconColor: Colors.redAccent,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+              child: const AppColumn(),
           ),
           ),
         ],

@@ -5,6 +5,8 @@ import 'package:shop_app_with_backend/widgets/big_text.dart';
 import 'package:shop_app_with_backend/widgets/icon_and_text.dart';
 import 'package:shop_app_with_backend/widgets/small_text.dart';
 
+import '../../widgets/app_column.dart';
+
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
 
@@ -218,53 +220,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ),
               child: Container(
                 padding: EdgeInsets.only(top: Dimantions.height10, left: 5, right: 5),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    BigText(text: "Chinese Side"),
-                    SizedBox(height: Dimantions.height10),
-                    Row(
-                      children: [
-                        Wrap(
-                          children: List.generate(
-                            5,
-                                (index) => Icon(
-                              Icons.star,
-                              color: Colors.teal.shade200,
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: Dimantions.width10),
-                        SmallText(text: "4.5"),
-                        SizedBox(width: Dimantions.width10),
-                        SmallText(text: "1287"),
-                        SizedBox(width: Dimantions.width10),
-                        SmallText(text: "comments"),
-                      ],
-                    ),
-                    SizedBox(height: Dimantions.height10),
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconAndText(
-                          icon: Icons.circle_rounded,
-                          text: "Normal",
-                          iconColor: Colors.amberAccent,
-                        ),
-                        IconAndText(
-                          icon: Icons.location_on_sharp,
-                          text: "1.7Km",
-                          iconColor: Colors.cyan,
-                        ),
-                        IconAndText(
-                          icon: Icons.access_time,
-                          text: "32 min",
-                          iconColor: Colors.redAccent,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                child:const AppColumn(),
               ),
             ),
           ),
