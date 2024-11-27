@@ -220,7 +220,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ),
               child: Container(
                 padding: EdgeInsets.only(top: Dimantions.height10, left: 5, right: 5),
-                child:const AppColumn(),
+                child:const AppColumn(text: 'Chinese Side',),
               ),
             ),
           ),
