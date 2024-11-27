@@ -54,7 +54,7 @@ decoration: const BoxDecoration(
                 ),
                 color: Colors.white,
               ),
-              child: const AppColumn(),
+              child: const AppColumn(text: "Chinese Side",),
           ),
           ),
         ],
