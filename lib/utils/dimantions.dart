@@ -34,6 +34,7 @@ class Dimantions {
 
   //icon Size
   static double iconSize24 = screenHeight /34.17;
+  static double iconSize16 = screenHeight /52.75;
 
   //list view size
   static double listViewSize = screenWidth /3.25;
