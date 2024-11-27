@@ -58,7 +58,7 @@ decoration: const BoxDecoration(
               child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AppColumn(text: "Chinese Side",),
+                  const AppColumn(text: "Chinese Side",),
                   SizedBox(height: Dimantions.height20,),
                   BigText(text: "Introduced"),
                 ],
@@ -66,6 +66,40 @@ decoration: const BoxDecoration(
           ),
           ),
         ],
+      ),
+      bottomNavigationBar: Container(
+        height: 120,
+        padding: EdgeInsets.only(
+            top: Dimantions.height20,
+            bottom: Dimantions.height20,
+            left: Dimantions.width10,
+            right: Dimantions.width10,
+        ),
+        decoration: BoxDecoration(
+          color: Colors.black12,
+            borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(Dimantions.radius20*2),
+            topRight: Radius.circular(Dimantions.radius20*2),
+          )
+        ),
+        child: Row(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(Dimantions.radius20),
+                color: Colors.white
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.remove,color: Colors.black45,),
+                  BigText(text: '0'),
+                  Icon(Icons.add,color: Colors.black45,),
+
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
