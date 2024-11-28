@@ -78,22 +78,28 @@ decoration: const BoxDecoration(
         decoration: BoxDecoration(
           color: Colors.black12,
             borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(Dimantions.radius20*2),
-            topRight: Radius.circular(Dimantions.radius20*2),
+            topLeft: Radius.circular(Dimantions.radius15*2),
+            topRight: Radius.circular(Dimantions.radius15*2),
           )
         ),
         child: Row(
           children: [
             Container(
-
+padding: EdgeInsets.only(
+    top: Dimantions.height10,
+    bottom:Dimantions.height10,
+    right: Dimantions.width10,
+    left: Dimantions.width10 ),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimantions.radius20),
+                borderRadius: BorderRadius.circular(Dimantions.radius15),
                 color: Colors.white
               ),
               child: Row(
                 children: [
                   Icon(Icons.remove,color: Colors.black45,),
+                 SizedBox(width: Dimantions.width10,),
                   BigText(text: '0'),
+                  SizedBox(width: Dimantions.width10,),
                   Icon(Icons.add,color: Colors.black45,),
 
                 ],
