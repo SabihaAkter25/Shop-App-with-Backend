@@ -83,6 +83,8 @@ decoration: const BoxDecoration(
           )
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
           children: [
             Container(
 padding: EdgeInsets.only(
@@ -104,7 +106,20 @@ padding: EdgeInsets.only(
 
                 ],
               ),
-            )
+            ),
+            Container(
+              padding: EdgeInsets.only(
+                  top: Dimantions.height10,
+                  bottom:Dimantions.height10,
+                  right: Dimantions.width10,
+                  left: Dimantions.width10 ),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Dimantions.radius15),
+                  color: Colors.tealAccent.shade700,
+              ),
+              child: BigText(text: "\$10 | Add to cart", color: Colors.white,),
+
+            ),
           ],
         ),
       ),
