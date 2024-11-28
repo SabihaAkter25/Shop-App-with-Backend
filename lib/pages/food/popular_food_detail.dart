@@ -68,7 +68,7 @@ decoration: const BoxDecoration(
         ],
       ),
       bottomNavigationBar: Container(
-        height: 120,
+        height: Dimantions.bottomHeightBar,
         padding: EdgeInsets.only(
             top: Dimantions.height20,
             bottom: Dimantions.height20,
@@ -98,11 +98,11 @@ padding: EdgeInsets.only(
               ),
               child: Row(
                 children: [
-                  Icon(Icons.remove,color: Colors.black45,),
+                  const Icon(Icons.remove,color: Colors.black45,),
                  SizedBox(width: Dimantions.width10,),
                   BigText(text: '0'),
                   SizedBox(width: Dimantions.width10,),
-                  Icon(Icons.add,color: Colors.black45,),
+                  const Icon(Icons.add,color: Colors.black45,),
 
                 ],
               ),
