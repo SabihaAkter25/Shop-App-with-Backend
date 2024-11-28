@@ -85,6 +85,7 @@ decoration: const BoxDecoration(
         child: Row(
           children: [
             Container(
+
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimantions.radius20),
                 color: Colors.white
