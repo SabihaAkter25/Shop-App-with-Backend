@@ -12,6 +12,7 @@ class PopularFoodDetail extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
+          //background image
           Positioned(
             left: 0,
               right: 0,
@@ -25,6 +26,7 @@ decoration: const BoxDecoration(
   )
 ),
               ) ),
+          //icon widget
           Positioned(
             top: Dimantions.height45,
               left: Dimantions.width20,
@@ -37,6 +39,7 @@ decoration: const BoxDecoration(
 
             ],
           ) ),
+          //introduction of food
           Positioned(
             left: 0,
             right: 0,
@@ -65,6 +68,8 @@ decoration: const BoxDecoration(
               )
           ),
           ),
+          //expandable text widget
+
         ],
       ),
       bottomNavigationBar: Container(
