@@ -3,6 +3,7 @@ import 'package:shop_app_with_backend/utils/dimantions.dart';
 import 'package:shop_app_with_backend/widgets/app_icon.dart';
 import 'package:shop_app_with_backend/widgets/big_text.dart';
 import '../../widgets/app_column.dart';
+import '../../widgets/expandable_text_widget.dart';
 
 class PopularFoodDetail extends StatelessWidget {
   const PopularFoodDetail({super.key});
@@ -64,11 +65,13 @@ decoration: const BoxDecoration(
                   const AppColumn(text: "Chinese Side",),
                   SizedBox(height: Dimantions.height20,),
                   BigText(text: "Introduced"),
+                  SizedBox(height: Dimantions.height20,),
+                  const ExpandableTextWidget(text: 'Food groups categorise foods for educational purposes, usually grouping together foods with similar nutritional properties or biological classifications. Food groups are often used in nutrition guides, although the number of groups used can vary widely.[1] ',)
                 ],
               )
           ),
           ),
-          //expandable text widget
+
 
         ],
       ),
