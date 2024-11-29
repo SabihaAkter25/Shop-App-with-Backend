@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app_with_backend/utils/dimantions.dart';
+import 'package:shop_app_with_backend/widgets/small_text.dart';
 
 class ExpandableTextWidget extends StatefulWidget {
   final String text;
@@ -30,6 +31,12 @@ void initSate(){
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      child: secondHalf.isEmpty? SmallText(text: firstHalf):Column(
+        children: [
+          SmallText(text: hiddenText?(firstHalf+'...'):(firstHalf+secondHalf))
+        ],
+      ) ,
+    );
   }
 }
