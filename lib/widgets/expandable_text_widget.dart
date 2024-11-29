@@ -30,13 +30,47 @@ void initSate(){
 }
 
   @override
+  @override
   Widget build(BuildContext context) {
+    final String text = widget.text;
+    final bool isLongText = text.length > textHeight.toInt();
+
+    final String firstHalf = isLongText
+        ? text.substring(0, textHeight.toInt())
+        : text;
+    final String secondHalf = isLongText
+        ? text.substring(textHeight.toInt(), text.length)
+        : "";
+
     return Container(
-      child: secondHalf.isEmpty? SmallText(text: firstHalf):Column(
+      child: secondHalf.isEmpty
+          ? SmallText(text: firstHalf)
+          : Column(
         children: [
-          SmallText(text: hiddenText?(firstHalf+'...'):(firstHalf+secondHalf))
+          SmallText(
+              text: hiddenText ? (firstHalf + '...') : (firstHalf + secondHalf)),
+          InkWell(
+              onTap: () {
+                setState(() {
+                  hiddenText = !hiddenText;
+                });
+              },
+              child: Row(
+                children: [
+                  SmallText(
+                    text: hiddenText ? 'Show More' : 'Show Less',
+                    color: Colors.tealAccent.shade700,
+                  ),
+                  Icon(
+                    hiddenText
+                        ? Icons.arrow_drop_down
+                        : Icons.arrow_drop_up,
+                    color: Colors.tealAccent.shade700,
+                  ),
+                ],
+              ))
         ],
-      ) ,
+      ),
     );
   }
 }
