@@ -12,23 +12,24 @@ class ExpandableTextWidget extends StatefulWidget {
 }
 
 class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
- late String firstHalf;
- late String secondHalf;
+  late String firstHalf;
+  late String secondHalf;
 
- bool hiddenText = true;
- double textHeight = Dimantions.screenHeight/5.63;
+  bool hiddenText = true;
+  double textHeight = Dimantions.screenHeight / 5.63;
 
-@override
-  void initState(){
-  super.initState();
-  if(widget.text.length>textHeight){
-    firstHalf= widget.text.substring(0, textHeight.toInt());
-    secondHalf= widget.text.substring(textHeight.toInt()+1, widget.text.length);
-  }else{
-    firstHalf=widget.text;
-    secondHalf ="";
+  @override
+  void initState() {
+    super.initState();
+    if (widget.text.length > textHeight) {
+      firstHalf = widget.text.substring(0, textHeight.toInt());
+      secondHalf = widget.text.substring(textHeight.toInt() + 1, widget.text.length);
+    } else {
+      firstHalf = widget.text;
+      secondHalf = "";
+    }
   }
-}
+
   @override
   Widget build(BuildContext context) {
     final String text = widget.text;
@@ -43,31 +44,37 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
 
     return Container(
       child: secondHalf.isEmpty
-          ? SmallText(text: firstHalf)
+          ? SmallText(
+        text: firstHalf,
+        size: 18, // Increased font size
+      )
           : Column(
         children: [
-          SmallText(
-              text: hiddenText ? ('$firstHalf...') : (firstHalf + secondHalf)),
+          Text(
+            hiddenText ? ('$firstHalf...') : (firstHalf + secondHalf),
+            style: TextStyle(fontSize: Dimantions.font16),
+          ),
+
           InkWell(
-              onTap: () {
-                setState(() {
-                  hiddenText = !hiddenText;
-                });
-              },
-              child: Row(
-                children: [
-                  SmallText(
-                    text: hiddenText ? 'Show More' : 'Show Less',
-                    color: Colors.tealAccent.shade700,
-                  ),
-                  Icon(
-                    hiddenText
-                        ? Icons.arrow_drop_down
-                        : Icons.arrow_drop_up,
-                    color: Colors.tealAccent.shade700,
-                  ),
-                ],
-              ))
+            onTap: () {
+              setState(() {
+                hiddenText = !hiddenText;
+              });
+            },
+            child: Row(
+              children: [
+                SmallText(
+                  text: hiddenText ? 'Show More' : 'Show Less',
+                  color: Colors.tealAccent.shade700,
+                  size: 16, // Adjusted font size for 'Show More/Less'
+                ),
+                Icon(
+                  hiddenText ? Icons.arrow_drop_down : Icons.arrow_drop_up,
+                  color: Colors.tealAccent.shade700,
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
