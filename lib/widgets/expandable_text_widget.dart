@@ -18,7 +18,8 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
  bool hiddenText = true;
  double textHeight = Dimantions.screenHeight/5.63;
 
-void initSate(){
+@override
+  void initState(){
   super.initState();
   if(widget.text.length>textHeight){
     firstHalf= widget.text.substring(0, textHeight.toInt());
@@ -28,8 +29,6 @@ void initSate(){
     secondHalf ="";
   }
 }
-
-  @override
   @override
   Widget build(BuildContext context) {
     final String text = widget.text;
@@ -48,7 +47,7 @@ void initSate(){
           : Column(
         children: [
           SmallText(
-              text: hiddenText ? (firstHalf + '...') : (firstHalf + secondHalf)),
+              text: hiddenText ? ('$firstHalf...') : (firstHalf + secondHalf)),
           InkWell(
               onTap: () {
                 setState(() {
