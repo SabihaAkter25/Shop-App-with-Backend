@@ -20,6 +20,7 @@ class Dimantions {
   //font
   static double font20 = screenHeight / 50.0; // Adjusted to make the text bigger
   static double font10 = screenHeight / 84.4;
+  static double font16 = screenHeight / 52.75;
   static double font26 = screenHeight / 32.46;
 
   //width
