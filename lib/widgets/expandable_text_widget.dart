@@ -52,7 +52,7 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
         children: [
           Text(
             hiddenText ? ('$firstHalf...') : (firstHalf + secondHalf),
-            style: TextStyle(fontSize: Dimantions.font16),
+            style: TextStyle(fontSize: Dimantions.font16,color: Colors.black45),
           ),
 
           InkWell(
