@@ -66,7 +66,32 @@ decoration: const BoxDecoration(
                   SizedBox(height: Dimantions.height20,),
                   BigText(text: "Introduced"),
                   SizedBox(height: Dimantions.height20,),
-                  const ExpandableTextWidget(text: 'Food groups categorise foods for educational purposes, usually grouping together foods with similar nutritional properties or biological classifications. Food groups are often used in nutrition guides, although the number of groups used can vary widely.[1] ',)
+                  const Expanded(
+                    child: SingleChildScrollView(
+                      child: ExpandableTextWidget(text: 'Food groups categorise foods for educational purposes,'
+                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
+                          'Food groups categorise foods for educational purposes,'
+                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
+                          'Food groups categorise foods for educational purposes,'
+                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
+                          'Food groups categorise foods for educational purposes,'
+                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
+                          'Food groups categorise foods for educational purposes,'
+                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
+                          'Food groups categorise foods for educational purposes,'
+                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
+                          'Food groups categorise foods for educational purposes,'
+                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
+                          'Food groups categorise foods for educational purposes,'
+                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
+                          'Food groups categorise foods for educational purposes,'
+                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
+                          'Food groups categorise foods for educational purposes,'
+                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
+
+                        ,),
+                    ),
+                  )
                 ],
               )
           ),
