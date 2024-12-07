@@ -218,10 +218,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   BoxShadow(color: Colors.white, offset: Offset(5, 0)),
                 ],
               ),
-              child: Container(
-                padding: EdgeInsets.only(top: Dimantions.height10, left: 5, right: 5),
-                child:const AppColumn(text: 'Chinese Side',),
-              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const AppColumn(text: 'Chinese Side',),
+                  SizedBox(height: Dimantions.height20,),
+                ],
+              )
             ),
           ),
         ],
