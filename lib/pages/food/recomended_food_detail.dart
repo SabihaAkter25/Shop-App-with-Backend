@@ -5,7 +5,7 @@ import '../../utils/dimantions.dart';
 import '../../widgets/expandable_text_widget.dart';
 
 class RecomendedFoodDetail extends StatelessWidget {
-  const RecomendedFoodDetail({super.key});
+   const RecomendedFoodDetail({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,8 @@ class RecomendedFoodDetail extends StatelessWidget {
             title: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppIcon(icon: Icons.clear),
-                AppIcon(icon: Icons.shopping_cart_outlined)
+                AppIcon(icon: Icons.clear, color: Colors.black,),
+                AppIcon(icon: Icons.shopping_cart_outlined, color: Colors.black,)
               ],
             ),
             bottom: PreferredSize(
@@ -50,7 +50,7 @@ class RecomendedFoodDetail extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  margin:EdgeInsets.only(left: Dimantions.width20,right: Dimantions.width20),
+                  margin:EdgeInsets.only(left: Dimantions.width20,right: Dimantions.width20,bottom: Dimantions.height20),
                   child: const ExpandableTextWidget(text:
           "  Food is any substance consumed by "
             "an organism for nutritional support. Food is usually of plant,"
@@ -76,6 +76,18 @@ class RecomendedFoodDetail extends StatelessWidget {
                 )
               ],
             )
+          )
+        ],
+      ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              AppIcon(backgroundColor:Colors.tealAccent.shade700,color:Colors.white, icon: Icons.remove,),
+               AppIcon(backgroundColor:Colors.tealAccent.shade700,icon: Icons.add, color: Colors.white,)
+            ],
           )
         ],
       ),
