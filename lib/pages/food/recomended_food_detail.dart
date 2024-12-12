@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app_with_backend/widgets/app_icon.dart';
+import 'package:shop_app_with_backend/widgets/big_text.dart';
 
 import '../../utils/dimantions.dart';
 import '../../widgets/expandable_text_widget.dart';
@@ -82,13 +83,22 @@ class RecomendedFoodDetail extends StatelessWidget {
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              AppIcon(backgroundColor:Colors.tealAccent.shade700,color:Colors.white, icon: Icons.remove,),
+         Container(
+           padding: EdgeInsets.only(
+             left: Dimantions.width20*2.5,
+             right: Dimantions.width20*2.5,
+             top: Dimantions.height10,
+             bottom: Dimantions.height10,
+           ),
+           child:  Row(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+             children: [
+               AppIcon(backgroundColor:Colors.tealAccent.shade700,color:Colors.white, icon: Icons.remove,),
+               BigText(text: "\$12.88"+" X "+"0",color: Colors.black,size: Dimantions.font26,),
                AppIcon(backgroundColor:Colors.tealAccent.shade700,icon: Icons.add, color: Colors.white,)
-            ],
-          )
+             ],
+           ),
+         )
         ],
       ),
     );
