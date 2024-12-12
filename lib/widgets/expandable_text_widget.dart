@@ -63,10 +63,11 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
             },
             child: Row(
               children: [
-                SmallText(
-                  text: hiddenText ? 'Show More' : 'Show Less',
-                  color: Colors.tealAccent.shade700,
-                  size: 16, // Adjusted font size for 'Show More/Less'
+                Text(
+                  hiddenText ? 'Show More' : 'Show Less',
+                  style: TextStyle(
+                    color: Colors.tealAccent.shade700,
+                    fontSize: 16,), // Adjusted font size for 'Show More/Less'
                 ),
                 Icon(
                   hiddenText ? Icons.arrow_drop_down : Icons.arrow_drop_up,
