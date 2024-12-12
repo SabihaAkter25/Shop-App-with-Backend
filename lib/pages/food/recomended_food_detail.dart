@@ -50,7 +50,8 @@ class RecomendedFoodDetail extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  child: ExpandableTextWidget(text:
+                  margin:EdgeInsets.only(left: Dimantions.width20,right: Dimantions.width20),
+                  child: const ExpandableTextWidget(text:
           "  Food is any substance consumed by "
             "an organism for nutritional support. Food is usually of plant,"
           " animal, or fungal origin and contains essential nutrients    "
