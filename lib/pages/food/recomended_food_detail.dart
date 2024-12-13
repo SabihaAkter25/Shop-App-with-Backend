@@ -98,7 +98,63 @@ class RecomendedFoodDetail extends StatelessWidget {
                AppIcon(backgroundColor:Colors.tealAccent.shade700,icon: Icons.add, color: Colors.white,)
              ],
            ),
-         )
+         ),
+          Container(
+            height: Dimantions.bottomHeightBar,
+            padding: EdgeInsets.only(
+              top: Dimantions.height20,
+              bottom: Dimantions.height20,
+              left: Dimantions.width10,
+              right: Dimantions.width10,
+            ),
+            decoration: BoxDecoration(
+                color: Colors.black12,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(Dimantions.radius15*2),
+                  topRight: Radius.circular(Dimantions.radius15*2),
+                )
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+              children: [
+                Container(
+                  padding: EdgeInsets.only(
+                      top: Dimantions.height10,
+                      bottom:Dimantions.height10,
+                      right: Dimantions.width10,
+                      left: Dimantions.width10 ),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Dimantions.radius15),
+                      color: Colors.white
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.remove,color: Colors.black45,),
+                      SizedBox(width: Dimantions.width10,),
+                      BigText(text: '0'),
+                      SizedBox(width: Dimantions.width10,),
+                      const Icon(Icons.add,color: Colors.black45,),
+
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(
+                      top: Dimantions.height10,
+                      bottom:Dimantions.height10,
+                      right: Dimantions.width10,
+                      left: Dimantions.width10 ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Dimantions.radius15),
+                    color: Colors.tealAccent.shade700,
+                  ),
+                  child: BigText(text: "\$10 | Add to cart", color: Colors.white,),
+
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
