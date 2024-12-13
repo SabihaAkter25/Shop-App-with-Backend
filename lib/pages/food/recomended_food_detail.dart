@@ -128,16 +128,8 @@ class RecomendedFoodDetail extends StatelessWidget {
                       borderRadius: BorderRadius.circular(Dimantions.radius15),
                       color: Colors.white
                   ),
-                  child: Row(
-                    children: [
-                      const Icon(Icons.remove,color: Colors.black45,),
-                      SizedBox(width: Dimantions.width10,),
-                      BigText(text: '0'),
-                      SizedBox(width: Dimantions.width10,),
-                      const Icon(Icons.add,color: Colors.black45,),
-
-                    ],
-                  ),
+                  child: Icon(Icons.favorite,
+                  color: Colors.tealAccent.shade700,)
                 ),
                 Container(
                   padding: EdgeInsets.only(
