@@ -35,8 +35,8 @@ decoration: const BoxDecoration(
               child:const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              AppIcon(icon: Icons.arrow_back_ios),
-              AppIcon(icon: Icons.shopping_cart_outlined),
+              AppIcon(icon: Icons.arrow_back_ios, color: Colors.black,),
+              AppIcon(icon: Icons.shopping_cart_outlined,color: Colors.black,),
 
             ],
           ) ),
