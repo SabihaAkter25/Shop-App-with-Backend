@@ -12,4 +12,13 @@ ApiClient({required this.appBaseUrl}){
     'Authorization':'Bearer $token',
   };
 }
+Future<Response>getData(String uri) async {
+  try{
+Response response=await get(uri);
+return response;
+  }catch(e){
+    return Response(statusCode: 1, statusText: e.toString());
+  }
+}
+
 }
