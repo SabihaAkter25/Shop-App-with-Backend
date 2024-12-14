@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app_with_backend/widgets/app_icon.dart';
 import 'package:shop_app_with_backend/widgets/big_text.dart';
-
 import '../../utils/dimantions.dart';
 import '../../widgets/expandable_text_widget.dart';
 
