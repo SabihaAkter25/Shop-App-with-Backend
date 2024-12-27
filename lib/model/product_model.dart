@@ -1,15 +1,22 @@
 class Product {
   Product({
-    required this.totalSize,
-    required this.typeId,
-    required this.offset,
-    required this.products,
-  });
+    required totalSize,
+    required typeId,
+    required offset,
+    required products,
+  }){
+    this._totalSize=totalSize;
+    this._typeId=typeId;
+    this._offset=offset;
+    this._products=products;
+  }
 
-  final int? totalSize;
-  final int? typeId;
-  final int? offset;
-  final List<ProductElement> products;
+   int? _totalSize;
+   int? _typeId;
+   int? _offset;
+  late List<ProductElement> _products;
+  List<ProductElement> get products=>_products;
+
 
   factory Product.fromJson(Map<String, dynamic> json){
     return Product(
