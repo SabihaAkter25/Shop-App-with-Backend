@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:shop_app_with_backend/controller/popular_product_controller.dart';
 import 'package:shop_app_with_backend/pages/food/recomended_food_detail.dart';
 import 'helper/dependencies.dart'as dep;
 Future<void> main() async {
@@ -14,6 +17,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Get.find<PopularProductController>().getPopularProductList();
+
     return GetMaterialApp(
     debugShowCheckedModeBanner: false,
       theme: ThemeData(
