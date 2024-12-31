@@ -5,7 +5,7 @@ import 'package:shop_app_with_backend/data/api/repository/popular_product_repo.d
 
 Future<void> init()async {
   // api client
-Get.lazyPut(()=>ApiClient(appBaseUrl: 'appBaseUrl', token: 'token'));
+Get.lazyPut(()=>ApiClient(appBaseUrl: 'http://mvs.bslmeiyu.com', token: 'token'));
 //repos
 Get.lazyPut(()=>PopularProductRepo(apiClient: Get.find()));
 //controllers
