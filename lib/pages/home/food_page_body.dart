@@ -1,5 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shop_app_with_backend/controller/popular_product_controller.dart';
 import 'package:shop_app_with_backend/utils/dimantions.dart';
 import 'package:shop_app_with_backend/widgets/big_text.dart';
 import 'package:shop_app_with_backend/widgets/icon_and_text.dart';
@@ -42,27 +44,37 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       child: Column(
         children: [
           // Slider section
-          SizedBox(
-            height: Dimantions.pageView,
-            child: PageView.builder(
-              controller: pageController,
-              itemCount: 5,
-              itemBuilder: (context, position) {
-                return _buildPageItem(position);
-              },
-            ),
-          ),
+
+          GetBuilder<PopularProductController>(builder:(popularProducts){
+          return SizedBox(
+          height: Dimantions.pageView,
+          child: PageView.builder(
+    controller: pageController,
+    itemCount: popularProducts.popularProductList.length,
+    itemBuilder: (context, position) {
+    return _buildPageItem(position);
+    },
+    ),
+    );
+          },),
+
           // Dots Indicator
-          DotsIndicator(
-            dotsCount: 5,
-            position: _currPageValue,
-            decorator: DotsDecorator(
-              activeColor: Colors.tealAccent.shade700,
-              size: const Size.square(9.0),
-              activeSize: const Size(18.0, 9.0),
-              activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-            ),
-          ),
+
+          GetBuilder<PopularProductController>(builder: (popularProducts){
+            return DotsIndicator(
+              dotsCount: popularProducts.popularProductList.isEmpty ? 1: popularProducts.popularProductList.length,
+              position: _currPageValue,
+              decorator: DotsDecorator(
+                activeColor: Colors.tealAccent.shade700,
+                size: const Size.square(9.0),
+                activeSize: const Size(18.0, 9.0),
+                activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+              ),
+            );
+          }),
+
+
+
           // Popular text
           SizedBox(height: Dimantions.height30),
           Container(
