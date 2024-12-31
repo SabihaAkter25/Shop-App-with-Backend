@@ -4,6 +4,8 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:shop_app_with_backend/controller/popular_product_controller.dart';
 import 'package:shop_app_with_backend/pages/food/recomended_food_detail.dart';
+import 'package:shop_app_with_backend/pages/home/food_page_body.dart';
+import 'package:shop_app_with_backend/pages/home/main_food_page.dart';
 import 'helper/dependencies.dart'as dep;
 Future<void> main() async {
 WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:const RecomendedFoodDetail(),
+      home:const MainFoodPage(),
     );
   }
 }
