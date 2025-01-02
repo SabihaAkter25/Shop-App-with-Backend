@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_app_with_backend/controller/popular_product_controller.dart';
+import 'package:shop_app_with_backend/utils/app_constants.dart';
 import 'package:shop_app_with_backend/utils/dimantions.dart';
 import 'package:shop_app_with_backend/widgets/big_text.dart';
 import 'package:shop_app_with_backend/widgets/icon_and_text.dart';
@@ -52,7 +53,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     controller: pageController,
     itemCount: popularProducts.popularProductList.length,
     itemBuilder: (context, position) {
-    return _buildPageItem(position);
+    return _buildPageItem(position, popularProducts.popularProductList[position]);
     },
     ),
     );
@@ -181,7 +182,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     );
   }
 
-  Widget _buildPageItem(int index) {
+  Widget _buildPageItem(int index, popularProduct) {
     Matrix4 matrix = Matrix4.identity();
     if (index == _currPageValue.floor()) {
       var currScale = 1 - (_currPageValue - index) * (1 - _scaleFactor);
@@ -210,9 +211,11 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Dimantions.radius30),
               color: index.isEven ? Colors.tealAccent : Colors.blue,
-              image: const DecorationImage(
+              image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage("assets/images/food3.jpg"),
+                image: NetworkImage(
+                    AppConstant.BASE_URL+"/uploads/"+popularProduct.img!
+                ),
               ),
             ),
           ),
