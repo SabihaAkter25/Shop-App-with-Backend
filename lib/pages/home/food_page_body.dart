@@ -83,7 +83,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                BigText(text: "Popular"),
+                BigText(text: "Recommended"),
                 SizedBox(width: Dimantions.width10),
                 Container(
                   margin: const EdgeInsets.only(bottom: 3),
