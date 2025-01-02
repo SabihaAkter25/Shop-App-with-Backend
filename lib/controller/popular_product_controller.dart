@@ -9,7 +9,7 @@ class PopularProductController extends GetxController {
 
   List<dynamic> _popularProductList = [];
   List<dynamic> get popularProductList => _popularProductList;
-bool _isLoaded = false;
+  bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
 
 
