@@ -236,7 +236,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const AppColumn(text: 'Chinese Side',),
+                  AppColumn(text:popularProduct.name!,),
                   SizedBox(height: Dimantions.height20,),
                 ],
               )
