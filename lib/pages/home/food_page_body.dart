@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_app_with_backend/controller/popular_product_controller.dart';
+import 'package:shop_app_with_backend/controller/recommended_product_controller.dart';
 import 'package:shop_app_with_backend/utils/app_constants.dart';
 import 'package:shop_app_with_backend/utils/dimantions.dart';
 import 'package:shop_app_with_backend/widgets/big_text.dart';
@@ -104,79 +105,83 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           ),
           SizedBox(height: Dimantions.height15),
           // List of food and images
-          ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            padding: EdgeInsets.only(bottom: Dimantions.height20),
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.only(left: Dimantions.width20, right: Dimantions.width20,bottom: Dimantions.height10),
-                child: Row(
-                  children: [
-                    //Image section
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(Dimantions.radius20),
-                        color: Colors.black12,
-                        image: const DecorationImage(
-                          image: AssetImage("assets/images/food1.png"),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      height: Dimantions.listViewSize,
-                      width:Dimantions.listViewSize,
-                    ),
-                    //Text section
-                    Expanded(
-                      child: Container(
-                        height:Dimantions.listViewTextContSize,
+          GetBuilder<RecommendedProductController>(builder:(recommendedProduct){
+            return recommendedProduct.isLoaded? ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              padding: EdgeInsets.only(bottom: Dimantions.height20),
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: EdgeInsets.only(left: Dimantions.width20, right: Dimantions.width20,bottom: Dimantions.height10),
+                  child: Row(
+                    children: [
+                      //Image section
+                      Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(topRight:Radius.circular(Dimantions.radius20),
-                              bottomRight:Radius.circular(Dimantions.radius20)),
-                        color: Colors.white,
+                          borderRadius: BorderRadius.circular(Dimantions.radius20),
+                          color: Colors.black12,
+                          image: const DecorationImage(
+                            image: AssetImage("assets/images/food1.png"),
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                     child: Padding(padding: EdgeInsets.only(left: Dimantions.width10),
-                     child: Column(
-                       crossAxisAlignment:CrossAxisAlignment.start,
-                       mainAxisAlignment:MainAxisAlignment.start,
-                       children: [
-                         BigText(text: "Nutritious fruit meal "),
-                       SizedBox(height: Dimantions.height10,),
-                         SmallText(text: "With chinese characteristics"),
-                         SizedBox(height: Dimantions.height10,),
-                         const Row(
-                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                           children: [
-                             IconAndText(
-                               icon: Icons.circle_rounded,
-                               text: "Normal",
-                               iconColor: Colors.amberAccent,
-                             ),
-                             IconAndText(
-                               icon: Icons.location_on_sharp,
-                               text: "1.7Km",
-                               iconColor: Colors.cyan,
-                             ),
-                             IconAndText(
-                               icon: Icons.access_time,
-                               text: "32 min",
-                               iconColor: Colors.redAccent,
-                             ),
-                           ],
-                         ),
-                       ],
-                     ),
-                     ),
+                        height: Dimantions.listViewSize,
+                        width:Dimantions.listViewSize,
                       ),
-                    )
+                      //Text section
+                      Expanded(
+                        child: Container(
+                          height:Dimantions.listViewTextContSize,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(topRight:Radius.circular(Dimantions.radius20),
+                                bottomRight:Radius.circular(Dimantions.radius20)),
+                            color: Colors.white,
+                          ),
+                          child: Padding(padding: EdgeInsets.only(left: Dimantions.width10),
+                            child: Column(
+                              crossAxisAlignment:CrossAxisAlignment.start,
+                              mainAxisAlignment:MainAxisAlignment.start,
+                              children: [
+                                BigText(text: "Nutritious fruit meal "),
+                                SizedBox(height: Dimantions.height10,),
+                                SmallText(text: "With chinese characteristics"),
+                                SizedBox(height: Dimantions.height10,),
+                                const Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    IconAndText(
+                                      icon: Icons.circle_rounded,
+                                      text: "Normal",
+                                      iconColor: Colors.amberAccent,
+                                    ),
+                                    IconAndText(
+                                      icon: Icons.location_on_sharp,
+                                      text: "1.7Km",
+                                      iconColor: Colors.cyan,
+                                    ),
+                                    IconAndText(
+                                      icon: Icons.access_time,
+                                      text: "32 min",
+                                      iconColor: Colors.redAccent,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
 
 
-                  ],
-                ),
-              );
-            },
-          ),
+                    ],
+                  ),
+                );
+              },
+            ):CircularProgressIndicator(
+              color: Colors.tealAccent.shade700,
+            );
+          })
         ],
       ),
     );
