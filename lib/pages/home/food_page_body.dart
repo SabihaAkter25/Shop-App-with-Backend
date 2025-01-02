@@ -110,7 +110,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               padding: EdgeInsets.only(bottom: Dimantions.height20),
-              itemCount: 10,
+              itemCount: recommendedProduct.recommendedProductList.length,
               itemBuilder: (context, index) {
                 return Container(
                   margin: EdgeInsets.only(left: Dimantions.width20, right: Dimantions.width20,bottom: Dimantions.height10),
@@ -121,8 +121,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(Dimantions.radius20),
                           color: Colors.black12,
-                          image: const DecorationImage(
-                            image: AssetImage("assets/images/food1.png"),
+                          image: DecorationImage(
+                            image: NetworkImage(
+                                AppConstant.BASE_URL+AppConstant.UPLOAD_URL+recommendedProduct.recommendedProductList[index].img!
+                            ),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -219,7 +221,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: NetworkImage(
-                    AppConstant.BASE_URL+"/uploads/"+popularProduct.img!
+                    AppConstant.BASE_URL+AppConstant.UPLOAD_URL+popularProduct.img!
                 ),
               ),
             ),
