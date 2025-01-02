@@ -47,16 +47,16 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           // Slider section
 
           GetBuilder<PopularProductController>(builder:(popularProducts){
-          return SizedBox(
-          height: Dimantions.pageView,
-          child: PageView.builder(
-    controller: pageController,
-    itemCount: popularProducts.popularProductList.length,
-    itemBuilder: (context, position) {
-    return _buildPageItem(position, popularProducts.popularProductList[position]);
-    },
-    ),
-    );
+          return popularProducts.isLoaded? SizedBox(
+            height: Dimantions.pageView,
+            child: PageView.builder(
+              controller: pageController,
+              itemCount: popularProducts.popularProductList.length,
+              itemBuilder: (context, position) {
+                return _buildPageItem(position, popularProducts.popularProductList[position]);
+              },
+            ),
+          ) : CircularProgressIndicator(color: Colors.tealAccent.shade700,);
           },),
 
           // Dots Indicator
