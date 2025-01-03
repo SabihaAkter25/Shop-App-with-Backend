@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:shop_app_with_backend/utils/dimantions.dart';
 import 'package:shop_app_with_backend/widgets/app_icon.dart';
 import 'package:shop_app_with_backend/widgets/big_text.dart';
 import '../../widgets/app_column.dart';
 import '../../widgets/expandable_text_widget.dart';
+import '../home/main_food_page.dart';
 
 class PopularFoodDetail extends StatelessWidget {
   const PopularFoodDetail({super.key});
@@ -32,11 +35,15 @@ decoration: const BoxDecoration(
             top: Dimantions.height45,
               left: Dimantions.width20,
               right: Dimantions.width20,
-              child:const Row(
+              child:Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              AppIcon(icon: Icons.arrow_back_ios, color: Colors.black,),
-              AppIcon(icon: Icons.shopping_cart_outlined,color: Colors.black,),
+              GestureDetector(
+                onTap:(){
+                  Get.to(()=>MainFoodPage());
+          },
+                  child: AppIcon(icon: Icons.arrow_back_ios, color: Colors.black,)),
+              const AppIcon(icon: Icons.shopping_cart_outlined,color: Colors.black,),
 
             ],
           ) ),
