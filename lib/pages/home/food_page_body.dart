@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_app_with_backend/controller/popular_product_controller.dart';
 import 'package:shop_app_with_backend/controller/recommended_product_controller.dart';
+import 'package:shop_app_with_backend/pages/food/popular_food_detail.dart';
 import 'package:shop_app_with_backend/utils/app_constants.dart';
 import 'package:shop_app_with_backend/utils/dimantions.dart';
 import 'package:shop_app_with_backend/widgets/big_text.dart';
@@ -50,18 +51,22 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           GetBuilder<PopularProductController>(builder:(popularProducts){
           return popularProducts.isLoaded? SizedBox(
             height: Dimantions.pageView,
-            child: PageView.builder(
-              controller: pageController,
-              itemCount: popularProducts.popularProductList.length,
-              itemBuilder: (context, position) {
-                return _buildPageItem(position, popularProducts.popularProductList[position]);
+            child: GestureDetector(
+              onTap: (){
+                Get.to(PopularFoodDetail());
               },
+              child: PageView.builder(
+                controller: pageController,
+                itemCount: popularProducts.popularProductList.length,
+                itemBuilder: (context, position) {
+                  return _buildPageItem(position, popularProducts.popularProductList[position]);
+                },
+              ),
             ),
           ) : CircularProgressIndicator(color: Colors.tealAccent.shade700,);
           },),
 
           // Dots Indicator
-
           GetBuilder<PopularProductController>(builder: (popularProducts){
             return DotsIndicator(
               dotsCount: popularProducts.popularProductList.isEmpty ? 1: popularProducts.popularProductList.length,
@@ -73,14 +78,15 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
               ),
             );
-          }),
+          }
+          ),
 
 
 
           // Popular text
           SizedBox(height: Dimantions.height30),
           Container(
-            margin: EdgeInsets.only(left: Dimantions.height30),
+             margin: EdgeInsets.only(left: Dimantions.height30),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
@@ -138,14 +144,14 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(topRight:Radius.circular(Dimantions.radius20),
                                 bottomRight:Radius.circular(Dimantions.radius20)),
-                            color: Colors.white,
+                            color: Colors.white
                           ),
                           child: Padding(padding: EdgeInsets.only(left: Dimantions.width10),
                             child: Column(
                               crossAxisAlignment:CrossAxisAlignment.start,
                               mainAxisAlignment:MainAxisAlignment.start,
                               children: [
-                                BigText(text: "Nutritious fruit meal "),
+                                BigText(text:recommendedProduct.recommendedProductList[index].name!),
                                 SizedBox(height: Dimantions.height10,),
                                 SmallText(text: "With chinese characteristics"),
                                 SizedBox(height: Dimantions.height10,),
