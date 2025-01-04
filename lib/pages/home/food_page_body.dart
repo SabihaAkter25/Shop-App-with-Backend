@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_app_with_backend/controller/popular_product_controller.dart';
 import 'package:shop_app_with_backend/controller/recommended_product_controller.dart';
-import 'package:shop_app_with_backend/pages/food/popular_food_detail.dart';
 import 'package:shop_app_with_backend/utils/app_constants.dart';
 import 'package:shop_app_with_backend/utils/dimantions.dart';
 import 'package:shop_app_with_backend/widgets/big_text.dart';
@@ -52,17 +51,15 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           GetBuilder<PopularProductController>(builder:(popularProducts){
           return popularProducts.isLoaded? SizedBox(
             height: Dimantions.pageView,
-            child: GestureDetector(
-              onTap: (){
-                Get.toNamed(RouteHelper.getPopularFood());
-              },
+
+
               child: PageView.builder(
                 controller: pageController,
                 itemCount: popularProducts.popularProductList.length,
                 itemBuilder: (context, position) {
                   return _buildPageItem(position, popularProducts.popularProductList[position]);
                 },
-              ),
+
             ),
           ) : CircularProgressIndicator(color: Colors.tealAccent.shade700,);
           },),
@@ -224,16 +221,21 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       transform: matrix,
       child: Stack(
         children: [
-          Container(
-            height: Dimantions.pageViewContainer,
-            margin: const EdgeInsets.only(left: 10, right: 10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(Dimantions.radius30),
-              color: index.isEven ? Colors.tealAccent : Colors.blue,
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                    AppConstant.BASE_URL+AppConstant.UPLOAD_URL+popularProduct.img!
+          GestureDetector(
+            onTap: (){
+              Get.toNamed(RouteHelper.getPopularFood(index));
+            },
+            child: Container(
+              height: Dimantions.pageViewContainer,
+              margin: const EdgeInsets.only(left: 10, right: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(Dimantions.radius30),
+                color: index.isEven ? Colors.tealAccent : Colors.blue,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                      AppConstant.BASE_URL+AppConstant.UPLOAD_URL+popularProduct.img!
+                  ),
                 ),
               ),
             ),
