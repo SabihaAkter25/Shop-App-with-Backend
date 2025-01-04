@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_app_with_backend/controller/popular_product_controller.dart';
 import 'package:shop_app_with_backend/pages/home/main_food_page.dart';
+import 'package:shop_app_with_backend/routes/route_helper.dart';
 import 'controller/recommended_product_controller.dart';
 import 'helper/dependencies.dart'as dep;
 Future<void> main() async {
@@ -21,11 +22,10 @@ class MyApp extends StatelessWidget {
 
     return GetMaterialApp(
     debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+
       home:const MainFoodPage(),
+    initialRoute: RouteHelper.initial,
+    getPages: RouteHelper.routes,
     );
   }
 }
