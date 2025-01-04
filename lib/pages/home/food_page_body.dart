@@ -10,6 +10,7 @@ import 'package:shop_app_with_backend/widgets/big_text.dart';
 import 'package:shop_app_with_backend/widgets/icon_and_text.dart';
 import 'package:shop_app_with_backend/widgets/small_text.dart';
 
+import '../../routes/route_helper.dart';
 import '../../widgets/app_column.dart';
 
 class FoodPageBody extends StatefulWidget {
@@ -53,7 +54,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             height: Dimantions.pageView,
             child: GestureDetector(
               onTap: (){
-                Get.to(PopularFoodDetail());
+                Get.toNamed(RouteHelper.getPopularFood());
               },
               child: PageView.builder(
                 controller: pageController,
