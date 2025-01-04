@@ -143,7 +143,7 @@ padding: EdgeInsets.only(
                   borderRadius: BorderRadius.circular(Dimantions.radius15),
                   color: Colors.tealAccent.shade700,
               ),
-              child: BigText(text: "\$10 | Add to cart", color: Colors.white,),
+              child: BigText(text: "\$ ${product.price!} | Add to cart", color: Colors.white,),
 
             ),
           ],
