@@ -119,71 +119,76 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               padding: EdgeInsets.only(bottom: Dimantions.height20),
               itemCount: recommendedProduct.recommendedProductList.length,
               itemBuilder: (context, index) {
-                return Container(
-                  margin: EdgeInsets.only(left: Dimantions.width20, right: Dimantions.width20,bottom: Dimantions.height10),
-                  child: Row(
-                    children: [
-                      //Image section
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(Dimantions.radius20),
-                          color: Colors.black12,
-                          image: DecorationImage(
-                            image: NetworkImage(
-                                AppConstant.BASE_URL+AppConstant.UPLOAD_URL+recommendedProduct.recommendedProductList[index].img!
-                            ),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        height: Dimantions.listViewSize,
-                        width:Dimantions.listViewSize,
-                      ),
-                      //Text section
-                      Expanded(
-                        child: Container(
-                          height:Dimantions.listViewTextContSize,
+                return GestureDetector(
+                  onTap: (){
+                    Get.toNamed(RouteHelper.getRecommendedFood());
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(left: Dimantions.width20, right: Dimantions.width20,bottom: Dimantions.height10),
+                    child: Row(
+                      children: [
+                        //Image section
+                        Container(
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(topRight:Radius.circular(Dimantions.radius20),
-                                bottomRight:Radius.circular(Dimantions.radius20)),
-                            color: Colors.white
-                          ),
-                          child: Padding(padding: EdgeInsets.only(left: Dimantions.width10),
-                            child: Column(
-                              crossAxisAlignment:CrossAxisAlignment.start,
-                              mainAxisAlignment:MainAxisAlignment.start,
-                              children: [
-                                BigText(text:recommendedProduct.recommendedProductList[index].name!),
-                                SizedBox(height: Dimantions.height10,),
-                                SmallText(text: "With chinese characteristics"),
-                                SizedBox(height: Dimantions.height10,),
-                                const Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    IconAndText(
-                                      icon: Icons.circle_rounded,
-                                      text: "Normal",
-                                      iconColor: Colors.amberAccent,
-                                    ),
-                                    IconAndText(
-                                      icon: Icons.location_on_sharp,
-                                      text: "1.7Km",
-                                      iconColor: Colors.cyan,
-                                    ),
-                                    IconAndText(
-                                      icon: Icons.access_time,
-                                      text: "32 min",
-                                      iconColor: Colors.redAccent,
-                                    ),
-                                  ],
-                                ),
-                              ],
+                            borderRadius: BorderRadius.circular(Dimantions.radius20),
+                            color: Colors.black12,
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                  AppConstant.BASE_URL+AppConstant.UPLOAD_URL+recommendedProduct.recommendedProductList[index].img!
+                              ),
+                              fit: BoxFit.cover,
                             ),
                           ),
+                          height: Dimantions.listViewSize,
+                          width:Dimantions.listViewSize,
                         ),
-                      )
-
-
-                    ],
+                        //Text section
+                        Expanded(
+                          child: Container(
+                            height:Dimantions.listViewTextContSize,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(topRight:Radius.circular(Dimantions.radius20),
+                                  bottomRight:Radius.circular(Dimantions.radius20)),
+                              color: Colors.white
+                            ),
+                            child: Padding(padding: EdgeInsets.only(left: Dimantions.width10),
+                              child: Column(
+                                crossAxisAlignment:CrossAxisAlignment.start,
+                                mainAxisAlignment:MainAxisAlignment.start,
+                                children: [
+                                  BigText(text:recommendedProduct.recommendedProductList[index].name!),
+                                  SizedBox(height: Dimantions.height10,),
+                                  SmallText(text: "With chinese characteristics"),
+                                  SizedBox(height: Dimantions.height10,),
+                                  const Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      IconAndText(
+                                        icon: Icons.circle_rounded,
+                                        text: "Normal",
+                                        iconColor: Colors.amberAccent,
+                                      ),
+                                      IconAndText(
+                                        icon: Icons.location_on_sharp,
+                                        text: "1.7Km",
+                                        iconColor: Colors.cyan,
+                                      ),
+                                      IconAndText(
+                                        icon: Icons.access_time,
+                                        text: "32 min",
+                                        iconColor: Colors.redAccent,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        )
+                  
+                  
+                      ],
+                    ),
                   ),
                 );
               },
