@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:shop_app_with_backend/controller/popular_product_controller.dart';
+import 'package:shop_app_with_backend/utils/app_constants.dart';
 import 'package:shop_app_with_backend/utils/dimantions.dart';
 import 'package:shop_app_with_backend/widgets/app_icon.dart';
 import 'package:shop_app_with_backend/widgets/big_text.dart';
@@ -29,10 +30,10 @@ class PopularFoodDetail extends StatelessWidget {
               child:Container(
                 width:double.maxFinite,
                 height: Dimantions.popularFoodImgSize,
-decoration: const BoxDecoration(
+decoration:  BoxDecoration(
   image: DecorationImage(
     fit: BoxFit.cover,
-      image:AssetImage("assets/images/food2.jpg"),
+      image:NetworkImage(AppConstant.BASE_URL+AppConstant.UPLOAD_URL+product.img!),
   )
 ),
               ) ),
@@ -75,34 +76,13 @@ decoration: const BoxDecoration(
               child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const AppColumn(text: "Chinese Side",),
+                  AppColumn(text:product.name!,),
                   SizedBox(height: Dimantions.height20,),
                   BigText(text: "Introduced"),
                   SizedBox(height: Dimantions.height20,),
-                  const Expanded(
+                  Expanded(
                     child: SingleChildScrollView(
-                      child: ExpandableTextWidget(text: 'Food groups categorise foods for educational purposes,'
-                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
-                          'Food groups categorise foods for educational purposes,'
-                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
-                          'Food groups categorise foods for educational purposes,'
-                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
-                          'Food groups categorise foods for educational purposes,'
-                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
-                          'Food groups categorise foods for educational purposes,'
-                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
-                          'Food groups categorise foods for educational purposes,'
-                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
-                          'Food groups categorise foods for educational purposes,'
-                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
-                          'Food groups categorise foods for educational purposes,'
-                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
-                          'Food groups categorise foods for educational purposes,'
-                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
-                          'Food groups categorise foods for educational purposes,'
-                          ' usually grouping together foods with similar nutritional properties or biological classifications. Fo'
-
-                        ,),
+                      child: ExpandableTextWidget(text: product.description! ,),
                     ),
                   )
                 ],
