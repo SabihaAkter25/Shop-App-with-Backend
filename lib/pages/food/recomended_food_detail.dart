@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:shop_app_with_backend/controller/recommended_product_controller.dart';
 import 'package:shop_app_with_backend/routes/route_helper.dart';
+import 'package:shop_app_with_backend/utils/app_constants.dart';
 import 'package:shop_app_with_backend/widgets/app_icon.dart';
 import 'package:shop_app_with_backend/widgets/big_text.dart';
 import '../../utils/dimantions.dart';
 import '../../widgets/expandable_text_widget.dart';
 
-class  RecomendedFoodDetail extends StatelessWidget {
-   const RecomendedFoodDetail({super.key});
+
+class  RecommendedFoodDetail extends StatelessWidget {
+
+  final int pageId;
+   const RecommendedFoodDetail({super.key, required this.pageId});
 
   @override
   Widget build(BuildContext context) {
+    var product = Get.find<RecommendedProductController>().recommendedProductList[pageId];
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -49,9 +55,10 @@ class  RecomendedFoodDetail extends StatelessWidget {
             pinned: true,
             expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset("assets/images/food3.jpg",
+              background: Image.network(AppConstant.BASE_URL+AppConstant.UPLOAD_URL+product.img!,
               width:double.maxFinite ,
-              fit: BoxFit.cover,),
+              fit: BoxFit.cover,
+            ),
             ),
           ),
           SliverToBoxAdapter(
