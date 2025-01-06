@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:shop_app_with_backend/model/product_model.dart';
 import '../data/api/repository/recommended_product_repo.dart';
 
+
 class RecommendedProductController extends GetxController {
   final RecommendedProductRepo recommendedProductRepo;
 
@@ -24,7 +25,6 @@ class RecommendedProductController extends GetxController {
       update();
     }else{
       print("could not get products recommended");
-
     }
 
   }
