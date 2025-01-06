@@ -9,15 +9,15 @@ import '../../utils/dimantions.dart';
 import '../../widgets/expandable_text_widget.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
-   int pageId;
+  final int pageId;
 
-   RecommendedFoodDetail({super.key, required this.pageId});
+  const RecommendedFoodDetail({super.key, required this.pageId});
 
   @override
   Widget build(BuildContext context) {
     // Fetch the controller and product
-    final controller = Get.find<RecommendedProductController>();
-    final product = controller.recommendedProductList[pageId];
+    final product= Get.find<RecommendedProductController>().recommendedProductList[pageId];
+
     print("the Page id is "+ pageId.toString());
     print("the Product name is "+ product.name.toString());
 
