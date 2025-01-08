@@ -17,7 +17,7 @@ class RecommendedFoodDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     // Fetch the controller and product
     final product= Get.find<RecommendedProductController>().recommendedProductList[pageId];
-
+ 
     print("the Page id is "+ pageId.toString());
     print("the Product name is "+ product.name.toString());
 
