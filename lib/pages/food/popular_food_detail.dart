@@ -125,9 +125,14 @@ decoration:  BoxDecoration(
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.remove,color: Colors.black45,),
+                    GestureDetector(
+                        onTap:(){
+                          PopularProduct.setQuantity(false);
+
+                 },
+                        child: const Icon(Icons.remove,color: Colors.black45,)),
                     SizedBox(width: Dimantions.width10,),
-                    BigText(text: '0'),
+                    BigText(text: PopularProduct.quantity.toString()),
                     SizedBox(width: Dimantions.width10,),
                     GestureDetector(
                         onTap: (){
