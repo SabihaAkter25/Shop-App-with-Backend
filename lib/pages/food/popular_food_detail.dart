@@ -12,7 +12,7 @@ import '../home/main_food_page.dart';
 
 class PopularFoodDetail extends StatelessWidget {
   final pageId;
-   PopularFoodDetail({required this.pageId,super.key});
+   const PopularFoodDetail({required this.pageId,super.key});
 
   @override
   Widget build(BuildContext context) {
