@@ -54,6 +54,9 @@ int checkQuantity(int quantity){
       return quantity;
     }
 }
+void initProduct(){
+    _quantity =0;
+}
 
 }
 
