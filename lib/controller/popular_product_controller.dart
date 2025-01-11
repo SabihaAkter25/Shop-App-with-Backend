@@ -36,6 +36,15 @@ setQuantity(bool isIncrement){
     }
     update();
 }
+checkQuantity(int quantity){
+    if(quantity<0){
+      return 0;
+    }else if(quantity>20){
+      return 20;
+    }else{
+      return quantity;
+    }
+}
 
 }
 
