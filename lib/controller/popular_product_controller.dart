@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_app_with_backend/data/api/repository/popular_product_repo.dart';
 import 'package:shop_app_with_backend/model/product_model.dart';
@@ -38,8 +39,16 @@ setQuantity(bool isIncrement){
 }
 int checkQuantity(int quantity){
     if(quantity<0){
+      Get.snackbar("Item count", "You can't reduce more!",
+      backgroundColor: Colors.tealAccent.shade400,
+      colorText: Colors.white,
+      );
       return 0;
     }else if(quantity>20){
+      Get.snackbar("Item count", "You can't add more!",
+        backgroundColor: Colors.tealAccent.shade400,
+        colorText: Colors.white,
+      );
       return 20;
     }else{
       return quantity;
