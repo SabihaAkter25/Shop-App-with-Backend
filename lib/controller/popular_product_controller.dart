@@ -63,15 +63,12 @@ class PopularProductController extends GetxController {
       return quantity;
     }
   }
-
   void initProduct() {
     _quantity = 0;
     _inCartItems = 0;
     //if exist
     // get from storage _inCartItems=3
-
   }
-
 }
 
 
