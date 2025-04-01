@@ -1,5 +1,4 @@
 class CartModel {
-
   final int? id;
   final String? name;
   final int? price;
@@ -7,6 +6,7 @@ class CartModel {
   final int? quantity;
   final bool? isExist;
   final String? time;
+
   CartModel({
     required this.id,
     required this.name,
@@ -17,7 +17,6 @@ class CartModel {
     required this.time,
   });
 
-
   factory CartModel.fromJson(Map<String, dynamic> json){
     return CartModel(
       id: json["id"],
@@ -27,6 +26,7 @@ class CartModel {
         time:json['time'],
       isExist:json['isExist'],
       quantity:json['quantity'],
+
         );
   }
 }
