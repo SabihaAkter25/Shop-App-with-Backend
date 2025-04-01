@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_app_with_backend/controller/cart_controller.dart';
 import 'package:shop_app_with_backend/data/api/repository/popular_product_repo.dart';
 import 'package:shop_app_with_backend/model/product_model.dart';
 
@@ -9,8 +10,9 @@ class PopularProductController extends GetxController {
   PopularProductController({required this.popularProductRepo});
 
   List<dynamic> _popularProductList = [];
-
   List<dynamic> get popularProductList => _popularProductList;
+  late CartController _cart;
+
   bool _isLoaded = false;
 
   bool get isLoaded => _isLoaded;
@@ -63,12 +65,26 @@ class PopularProductController extends GetxController {
       return quantity;
     }
   }
-  void initProduct() {
+  void initProduct(CartController cart) {
     _quantity = 0;
     _inCartItems = 0;
+    _cart=cart;
     //if exist
     // get from storage _inCartItems=3
   }
+
+  void addItem(ProductElement product,){
+    if(quantity>0) {
+      _cart.addItem(product, _quantity);
+    }else{
+      Get.snackbar("Item count", "You should add at least 1 item!",
+      backgroundColor: Colors.tealAccent.shade400,
+      colorText: Colors.white,
+      );
+    }
+
+  }
+
 }
 
 
