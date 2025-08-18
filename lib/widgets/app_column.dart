@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app_with_backend/widgets/small_text.dart';
 
-import '../utils/dimantions.dart';
+import '../utils/dimentions.dart';
 import 'big_text.dart';
 import 'icon_and_text.dart';
 
@@ -11,51 +11,45 @@ class AppColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        BigText(text:text,size: Dimantions.font26,),
-        SizedBox(height: Dimantions.height10),
+        Bigtext(color: Colors.black, text:text,size: Dimentions.font26,),
+        const SizedBox(height: 10,),
         Row(
           children: [
             Wrap(
-              children: List.generate(
-                5,
-                    (index) => Icon(
-                  Icons.star,
-                  color: Colors.teal.shade200,
-                ),
-              ),
+              children: List.generate(5, (index)=> const Icon(Icons.star,color: Colors.teal,size: 15,)),
             ),
-            SizedBox(width: Dimantions.width10),
-            SmallText(text: "4.5"),
-            SizedBox(width: Dimantions.width10),
-            SmallText(text: "1287"),
-            SizedBox(width: Dimantions.width10),
-            SmallText(text: "comments"),
+            const SizedBox(width:5,),
+            Smalltext(color: Colors.black45, text: "4.5"),
+            const SizedBox(width: 5,),
+            Smalltext(color: Colors.black45, text: "1287"),
+            const SizedBox(width: 5,),
+            Smalltext(color: Colors.black45, text: "Comments")
+
           ],
         ),
-        SizedBox(height: Dimantions.height10),
+        const SizedBox(height: 10,),
         const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            IconAndText(
-              icon: Icons.circle_rounded,
-              text: "Normal",
-              iconColor: Colors.amberAccent,
-            ),
-            IconAndText(
-              icon: Icons.location_on_sharp,
-              text: "1.7Km",
-              iconColor: Colors.cyan,
-            ),
-            IconAndText(
-              icon: Icons.access_time,
-              text: "32 min",
-              iconColor: Colors.redAccent,
-            ),
+            IconTextWidget(
+                icon: Icons.circle_sharp,
+                text: "Normal",
+                iconColor: Colors.orange),
+
+            IconTextWidget(
+                icon: Icons.location_on,
+                text: "Location",
+                iconColor: Colors.tealAccent),
+
+            IconTextWidget(
+                icon: Icons.access_time_rounded,
+                text: "32min",
+                iconColor: Colors.orange),
           ],
-        ),
+        )
       ],
     );
   }
