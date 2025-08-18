@@ -1,28 +1,29 @@
-import 'package:flutter/material.dart';
-import 'package:shop_app_with_backend/utils/dimantions.dart';
+import 'package:flutter/cupertino.dart';
 
-class SmallText extends StatelessWidget {
-  Color? color;
+class Smalltext extends StatelessWidget {
+  final Color? color;
   final String text;
   double size;
-  double height =1.2;
+  double height;
 
 
-  SmallText({super.key,  this.color=Colors.black26, required this.text,
-this.height=1.2,
-    this.size=12,
+  Smalltext({super.key,
+    this.color,
+    required this.text,
+    this.size=13,
+    this.height=1.6
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+      BuildContext context) {
     return Text(
       text,
 
-      style: TextStyle(
-        color: color,
+      style: TextStyle(color: color,
+        fontSize: size,
         fontWeight: FontWeight.w400,
-        fontSize: Dimantions.font10,
-        height: height
+        height:height,
       ),
 
     );
