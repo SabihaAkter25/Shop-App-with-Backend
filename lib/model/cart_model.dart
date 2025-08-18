@@ -1,32 +1,30 @@
 class CartModel {
-  final int? id;
-  final String? name;
-  final int? price;
-  final String? img;
-  final int? quantity;
-  final bool? isExist;
-  final String? time;
+  int? id;
+  String? name;
+  int? price;
+  String? img;
+  int? quantity;
+  bool? isExist;
+  String? time;
 
-  CartModel({
-    required this.id,
-    required this.name,
-    required this.price,
-    required this.img,
-    required this.quantity,
-    required this.isExist,
-    required this.time,
-  });
+  CartModel(
+      {this.id,
+        this.name,
+        this.price,
+        this.img,
+        this.quantity,
+        this.isExist,
+        this.time
+      });
 
-  factory CartModel.fromJson(Map<String, dynamic> json){
-    return CartModel(
-      id: json["id"],
-      name: json["name"],
-      price: json["price"],
-      img: json["img"],
-        time:json['time'],
-      isExist:json['isExist'],
-      quantity:json['quantity'],
-
-        );
+  CartModel.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    price = json['price'];
+    img = json['img'];
+    quantity = json['quantity'];
+    isExist = json['isExist'];
+    time = json['time'];
   }
+
 }
