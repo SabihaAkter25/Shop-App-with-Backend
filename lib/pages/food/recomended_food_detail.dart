@@ -9,6 +9,7 @@ import '../../utils/dimentions.dart';
 import '../../widgets/app_icon.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/expandable_text_widget.dart';
+import '../cart/cart_page.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageId;
@@ -39,7 +40,11 @@ class RecommendedFoodDetail extends StatelessWidget {
                     GetBuilder<PopularProductController>(builder:(controller){
                       return Stack(
                         children: [
-                          const AppIcon(icon: Icons.shopping_cart_outlined,),
+                          GestureDetector(
+                              onTap:(){
+                                Get.to(()=>CartPage());
+                      },
+                              child: const AppIcon(icon: Icons.shopping_cart_outlined,)),
                           Get.find<PopularProductController>().totalItems>=1?
                           Positioned(
                             top:0, right:0,
