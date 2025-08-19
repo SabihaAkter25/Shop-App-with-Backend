@@ -9,6 +9,7 @@ import '../../widgets/app_column.dart';
 import '../../widgets/app_icon.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/expandable_text_widget.dart';
+import '../cart/cart_page.dart';
 import '../home/food_page_body.dart';
 import '../home/main_food_page.dart';
 
@@ -129,7 +130,11 @@ class  PopolarFoodDetail extends StatelessWidget {
                   GetBuilder<PopularProductController>(builder:(controller){
                     return Stack(
                       children: [
-                        AppIcon(icon: Icons.shopping_cart_outlined,),
+                        GestureDetector(
+                            onTap:(){
+                              Get.to(()=>CartPage());
+                    },
+                            child: AppIcon(icon: Icons.shopping_cart_outlined,)),
                         Get.find<PopularProductController>().totalItems>=1?
                         Positioned(
                           top:0, right:0,
