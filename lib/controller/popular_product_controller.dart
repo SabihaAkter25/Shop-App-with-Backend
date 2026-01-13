@@ -12,23 +12,27 @@ class PopularProductController extends GetxController{
 
   List<ProductModel> _popularProductList=[];
   List<ProductModel> get popularProductList => _popularProductList;
-  bool _isloaded=false;
-  bool get isloaded => _isloaded;
+  bool _isLoaded=false;
+  bool get isLoaded => _isLoaded;
   int _quantity=0;
   int get quantity =>_quantity;
   int _inCartItems=0;
   int get inCartItems => _inCartItems + _quantity;
   late CartController _cart;
-
+  @override
+  void onInit() {
+    super.onInit();
+    getPopularProductList();
+  }
   Future<void> getPopularProductList() async {
     Response response = await popularProductRepo.getPopularProductList();
 
     if (response.statusCode == 200) {
-
-      _popularProductList = [];
-      _popularProductList.addAll(Product.fromJson(response.body).products);
-      _isloaded = true;
+      final product = Product.fromJson(response.body);
+      _popularProductList = product.products;
+      _isLoaded = true;
       update();
+      print("Loaded: ${_popularProductList.length}");
     } else {
       print("Error fetching products: ${response.statusCode}");
     }
