@@ -179,6 +179,66 @@ class CartPage extends StatelessWidget {
           )
         ],
       ),
+      bottomNavigationBar: GetBuilder<CartController>(builder: (cartController){
+        return Container(
+          height: 120,
+          padding: EdgeInsets.only(
+            top: Dimentions.height30,
+            bottom: Dimentions.height30,
+            left: Dimentions.width30,
+            right: Dimentions.width20,
+          ),
+          decoration:BoxDecoration(
+              color: Colors.black12,
+              borderRadius: BorderRadius.only(
+                topRight:Radius.circular(Dimentions.radius20*2),
+                topLeft:Radius.circular(Dimentions.radius20*2),
+
+              )
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: Dimentions.height10,bottom: Dimentions.height10,right: Dimentions.width20,left: Dimentions.width20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(Dimentions.radius20),
+                ),
+                child: Row(
+                  children: [
+
+                    SizedBox(width: Dimentions.width10,),
+                    Bigtext(text: "\$${cartController.totalAmount}"),
+                    SizedBox(width: Dimentions.width10,),
+                                  ],
+                ),
+              ),
+
+              GestureDetector(
+                onTap:(){
+
+                },
+                child: Container(
+                  padding: EdgeInsets.only(top: Dimentions.height10,bottom: Dimentions.height10,right: Dimentions.width20,left: Dimentions.width20),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Dimentions.radius20),
+                      color: Colors.tealAccent.shade700
+                  ),
+
+                  child: Bigtext(text: " Check Out",
+                      color:Colors.white),
+                ),
+              )
+
+
+            ],
+          ),
+
+        );
+      }),
+
     );
   }
 }
