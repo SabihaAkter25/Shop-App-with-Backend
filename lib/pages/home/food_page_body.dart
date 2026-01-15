@@ -54,7 +54,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
         // Slider section
         GetBuilder<PopularProductController>(builder: (PopularProducts){ //PopularProducts এটা controller-এর current state ধরে রাখে। এই instance হচ্ছে dependency injection দিয়ে রেজিস্টার করা সেই controller (যেটা তুমি Get.lazyPut বা Get.put দিয়ে init করেছিলে)।
-          return  PopularProducts.isloaded? Container(
+          return  PopularProducts.isLoaded? Container(
 
             height: Dimentions.PageView,
             child: PageView.builder(
@@ -120,7 +120,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   {
                     return GestureDetector(
                       onTap: (){
-                        Get.toNamed(RouteHelper.getRecommendedFood(index));
+                        Get.toNamed(RouteHelper.getRecommendedFood(index,"Recommeneded"));
                       },
                       child: Container(
                         margin: EdgeInsets.only(left: Dimentions.width20,right: Dimentions.width20,bottom: Dimentions.height10),
@@ -162,7 +162,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                     children: [
                                       Bigtext(text: recommendedProduct.recommendedProductList[index].name!),
                                       Smalltext(color: Colors.black54, text: "With chinese charachteristics"),
-                                      const Row(
+                                      Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
                                           IconTextWidget(
@@ -170,12 +170,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                               text: "Normal",
                                               iconColor: Colors.orange),
 
-                                          IconTextWidget(
+                                           IconTextWidget(
                                               icon: Icons.location_on,
                                               text: "Location",
                                               iconColor: Colors.tealAccent),
 
-                                          IconTextWidget(
+                                           IconTextWidget(
                                               icon: Icons.access_time_rounded,
                                               text: "32min",
                                               iconColor: Colors.orange),
@@ -228,7 +228,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         children: [
           GestureDetector(
             onTap: (){
-              Get.toNamed(RouteHelper.getPopularFood(index));
+              Get.toNamed(RouteHelper.getPopularFood(index,"Popular"));
             },
             child: Container(
               height: Dimentions.pageViewContainer,
