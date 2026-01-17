@@ -4,6 +4,9 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:shop_app_with_backend/routes/route_helper.dart';
 
+import '../../controller/popular_product_controller.dart';
+import '../../controller/recommended_product_controller.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -12,10 +15,16 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen>with TickerProviderStateMixin{
+  _loadResources(){
+    Get.find<PopularProductController>().getPopularProductList();
+    Get.find<RecommendedProductController>().getRecommendedProductList();
+  }
+
   late Animation<double> animation;
   late AnimationController controller;
   @override
   void initState(){
+    _loadResources();
     super.initState();
     controller= AnimationController(
         vsync: this,
@@ -23,10 +32,16 @@ class _SplashScreenState extends State<SplashScreen>with TickerProviderStateMixi
     animation = CurvedAnimation(
         parent: controller,
         curve: Curves.linear);
-  }
-  Timer(){
-    const Duration(seconds: 3);
-    ()=>Get.offNamed(RouteHelper.getInitial());
+    Future.delayed(const Duration(seconds: 3),(){
+      Get.offNamed(RouteHelper.getInitial());
+    });
+    @override
+    void dispose() {
+      controller.dispose();
+      super.dispose();
+    }
+
+
   }
   @override
   Widget build(BuildContext context) {
