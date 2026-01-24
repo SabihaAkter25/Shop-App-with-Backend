@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_app_with_backend/controller/popular_product_controller.dart';
+import 'package:shop_app_with_backend/controller/recommended_product_controller.dart';
 import 'package:shop_app_with_backend/routes/route_helper.dart';
 import 'helper/dependencies.dart'as dep;
 
@@ -20,12 +22,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return GetMaterialApp(
-    debugShowCheckedModeBanner: false,
+   return GetBuilder<PopularProductController>(builder: (_){
+     return GetBuilder<RecommendedProductController>(builder: (_){
+       return GetMaterialApp(
+         debugShowCheckedModeBanner: false,
 
-    initialRoute: RouteHelper.getSplash(),
-   getPages: RouteHelper.routes,
-    );
+         initialRoute: RouteHelper.getSplash(),
+         getPages: RouteHelper.routes,
+       );
+     },);
+   });
 
   }
 }
