@@ -1,5 +1,4 @@
 import 'package:shop_app_with_backend/model/product_model.dart';
-
 class CartModel {
   int? id;
   String? name;
@@ -8,18 +7,18 @@ class CartModel {
   int? quantity;
   bool? isExist;
   String? time;
- late ProductModel product;
+  ProductModel? product;
 
-  CartModel(
-      {this.id,
-        this.name,
-        this.price,
-        this.img,
-        this.quantity,
-        this.isExist,
-        this.time,
-         required this.product,
-      });
+  CartModel({
+    this.id,
+    this.name,
+    this.price,
+    this.img,
+    this.quantity,
+    this.isExist,
+    this.time,
+    this.product,
+  });
 
   CartModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -29,20 +28,23 @@ class CartModel {
     quantity = json['quantity'];
     isExist = json['isExist'];
     time = json['time'];
-    product= ProductModel.fromJson(json['product']);
+
+    // ✅ NULL SAFE PARSING
+    product = json['product'] != null
+        ? ProductModel.fromJson(json['product'])
+        : null;
   }
-  Map<String,dynamic>toJson(){
-       return{
-  "id":id,
-  "name":name,
-  "price":price,
-  "img":img,
-  "quantity":quantity,
-  "isExist":isExist,
-  "time":time,
-  "product":product.tojson()
 
-};
-}
-
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "name": name,
+      "price": price,
+      "img": img,
+      "quantity": quantity,
+      "isExist": isExist,
+      "time": time,
+      "product": product?.toJson(), // ✅ J বড় হাতের
+    };
+  }
 }
