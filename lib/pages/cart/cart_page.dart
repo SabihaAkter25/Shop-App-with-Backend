@@ -76,7 +76,7 @@ class CartPage extends StatelessWidget {
                                   GestureDetector(
                                    onTap: () {
                                  // 1) Cart থেকে যেই product এ ক্লিক করা হয়েছে, তার ID নাও
-                                 int productId = _cartList[index].product.id!;
+                                 int? productId = _cartList[index].product?.id!;
 
                              // 2) Popular এবং Recommended controller নাও (GetX থেকে)
                              var popularController = Get.find<PopularProductController>();
@@ -144,7 +144,7 @@ class CartPage extends StatelessWidget {
                                                      children: [
                                                        GestureDetector(
                                                            onTap: (){
-                                                             cartController.addItem(_cartList[index].product, -1);
+                                                             cartController.addItem(_cartList[index].product!, -1);
                                                            },
                                                            child: Icon(Icons.remove,color: Colors.black,)),
                                                        SizedBox(width: Dimentions.width10,),
@@ -154,7 +154,7 @@ class CartPage extends StatelessWidget {
                                                        SizedBox(width: Dimentions.width10,),
                                                        GestureDetector(
                                                            onTap: (){
-                                                             cartController.addItem(_cartList[index].product, 1);
+                                                             cartController.addItem(_cartList[index].product!, 1);
                                                            },
                                                            child: Icon(Icons.add,color: Colors.black,)),                  ],
                                                    ),
