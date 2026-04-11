@@ -1,12 +1,14 @@
 import 'package:shop_app_with_backend/model/product_model.dart';
+
 class CartModel {
   int? id;
   String? name;
-  int? price;
+  double? price;
   String? img;
   int? quantity;
   bool? isExist;
   String? time;
+  String? thumbnail;
   ProductModel? product;
 
   CartModel({
@@ -17,19 +19,24 @@ class CartModel {
     this.quantity,
     this.isExist,
     this.time,
+    this.thumbnail,
     this.product,
   });
 
   CartModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    price = json['price'];
+
+    // ✅ safe conversion
+    price = (json['price'] as num?)?.toDouble();
+
     img = json['img'];
+    thumbnail = json['thumbnail'];
     quantity = json['quantity'];
     isExist = json['isExist'];
     time = json['time'];
 
-    // ✅ NULL SAFE PARSING
+    // ✅ product parsing
     product = json['product'] != null
         ? ProductModel.fromJson(json['product'])
         : null;
@@ -44,7 +51,8 @@ class CartModel {
       "quantity": quantity,
       "isExist": isExist,
       "time": time,
-      "product": product?.toJson(), // ✅ J বড় হাতের
+      "thumbnail":thumbnail,
+      "product": product?.toJson(),
     };
   }
 }
