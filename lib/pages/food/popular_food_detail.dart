@@ -10,13 +10,11 @@ import '../../widgets/app_column.dart';
 import '../../widgets/app_icon.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/expandable_text_widget.dart';
-import '../cart/cart_page.dart';
-import '../home/food_page_body.dart';
-import '../home/main_food_page.dart';
 
 class  PopolarFoodDetail extends StatelessWidget {
   int pageId;
-  PopolarFoodDetail( {super.key, required  this.pageId, });
+  String page;
+  PopolarFoodDetail( {super.key, required  this.pageId, required this.page, });
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +73,7 @@ class  PopolarFoodDetail extends StatelessWidget {
                   popularProduct.addItem(product);
                 },
                 child: Container(
-                  padding: EdgeInsets.only(top: Dimentions.height20,bottom: Dimentions.height20,right: Dimentions.width20,left: Dimentions.width20),
+                  padding: EdgeInsets.only(top: Dimentions.height10,bottom: Dimentions.height10,right: Dimentions.width20,left: Dimentions.width20),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(Dimentions.radius20),
                       color: Colors.tealAccent.shade700
@@ -105,7 +103,7 @@ class  PopolarFoodDetail extends StatelessWidget {
                   decoration: BoxDecoration(
                       image: DecorationImage(
                         image:NetworkImage(
-                          AppConstants.BASE_URL+AppConstants.UPLOAD_URL+product.img!,
+                          product.thumbnail!,
                         ),
                         fit: BoxFit.cover,
                       )
@@ -124,14 +122,18 @@ class  PopolarFoodDetail extends StatelessWidget {
                 children: [
                   GestureDetector(
                       onTap: (){
-                        Get.toNamed(RouteHelper.getInitial());
+                        if(page=='cart'){
+                          Get.toNamed(RouteHelper.getCartPage());
+                        }else{
+                          Get.toNamed(RouteHelper.getInitial());
+                        }
                       },
                       child: AppIcon(icon: Icons.arrow_back_ios, )),
 
                   GetBuilder<PopularProductController>(builder:(controller){
                     return GestureDetector(
                       onTap:(){
-                        if(controller.totalItems>=1)
+                        if(controller.totalItems>=0)
                         Get.toNamed((RouteHelper.getCartPage()));
                       },
                       child: Stack(
@@ -140,7 +142,9 @@ class  PopolarFoodDetail extends StatelessWidget {
                           controller.totalItems>=1?
                           Positioned(
                             top:0, right:0,
-                            child: AppIcon(icon: Icons.circle,size: 20,backgroundColor: Colors.tealAccent.shade700,
+                            child: AppIcon(icon: Icons.circle,
+                              size: 20,
+                              backgroundColor: Colors.tealAccent.shade700,
                               iconColor: Colors.transparent,),
                           ):Container(),
                           controller.totalItems>=1?
