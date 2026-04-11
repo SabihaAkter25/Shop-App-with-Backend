@@ -2,13 +2,15 @@ class AppConstants{
   static const String APP_NAME ="FoodieUS";
   static const int APP_VERSION =1;
 
-  static const String BASE_URL ="http://mvs.bslmeiyu.com";
-  static const String POPULAR_PRODUCTS_URI ="/api/v1/products/popular";
-  static const String RECOMMENDED_PRODUCTS_URI ="/api/v1/products/recommended";
-  static const String UPLOAD_URL ="/uploads/";
+  static const String BASE_URL ="https://dummyjson.com";
+  static const String POPULAR_PRODUCTS_URI ="/products?limit=10";
+  static const String RECOMMENDED_PRODUCTS_URI ="/products/search?q=phone";
+  static const String UPLOAD_URL ="/image/";
 
 
   static const String TOKEN ="DBtoken";
   static const String CART_LIST = "Cart-List";
+  static const String CART_HISTORY_LIST = "cart-history-list";
+
 
 }
