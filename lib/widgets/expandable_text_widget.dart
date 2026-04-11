@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app_with_backend/widgets/small_text.dart';
-
 import '../utils/dimentions.dart';
 
 class ExpandableText extends StatefulWidget {
