@@ -1,4 +1,4 @@
-
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_app_with_backend/model/cart_model.dart';
@@ -8,8 +8,8 @@ import 'cart_controller.dart';
 
 class PopularProductController extends GetxController{
   final PopularProductRepo popularProductRepo;
-  PopularProductController({required this.popularProductRepo});
 
+  PopularProductController({required this.popularProductRepo});
   List<ProductModel> _popularProductList=[];
   List<ProductModel> get popularProductList => _popularProductList;
   bool _isLoaded=false;
@@ -28,18 +28,24 @@ class PopularProductController extends GetxController{
     Response response = await popularProductRepo.getPopularProductList();
 
     if (response.statusCode == 200) {
-      final product = Product.fromJson(response.body);
+      final data = response.body is String
+          ? jsonDecode(response.body)
+          : response.body;
+
+      final product = Product.fromJson(data);
+
       _popularProductList = product.products;
       _isLoaded = true;
       update();
-      print("Loaded: ${_popularProductList.length}");
+
+      print("Loaded products: ${_popularProductList.length}");
     } else {
-      print("Error fetching products: ${response.statusCode}");
+      print("Error: ${response.statusCode}");
     }
   }
   void setQuantity(bool isIncrement){
     if(isIncrement){
-      print("increment "+quantity.toString());
+      // print("increment "+quantity.toString());
       _quantity= checkQuantity(_quantity+1);
     }else{
       _quantity=  checkQuantity(_quantity-1);
@@ -88,7 +94,7 @@ class PopularProductController extends GetxController{
     _inCartItems =_cart.getQuantity(product);
 
     _cart.items.forEach((key,value){
-      print("the id is "+value.id.toString()+"the quantity is "+value.quantity.toString());
+      // print("the id is "+value.id.toString()+"the quantity is "+value.quantity.toString());
     });
 
     update();
@@ -101,8 +107,6 @@ class PopularProductController extends GetxController{
   List<CartModel>get getItems{
     return _cart.getItems;
   }
-
-
 }
 
 
