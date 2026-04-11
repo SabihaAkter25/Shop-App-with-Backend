@@ -5,13 +5,11 @@ import '../../controller/popular_product_controller.dart';
 import '../../controller/recommended_product_controller.dart';
 import '../../model/product_model.dart';
 import '../../routes/route_helper.dart';
-import '../../utils/app_constants.dart';
 import '../../utils/dimentions.dart';
 import '../../widgets/app_column.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/icon_and_text.dart';
 import '../../widgets/small_text.dart';
-import '../food/popular_food_detail.dart';
 
 
 class FoodPageBody extends StatefulWidget {
@@ -46,7 +44,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
-    print("current height is ${MediaQuery.of(context).size.height}");
+    // print("current height is ${MediaQuery.of(context).size.height}");
 
 
     return  Column(
@@ -74,7 +72,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         //dots
 
         GetBuilder<PopularProductController>(builder: (popularProducts){
+
           return DotsIndicator(
+
             dotsCount: popularProducts.popularProductList.isEmpty?1:popularProducts.popularProductList.length,
             position: _currPageValue,
             decorator: DotsDecorator(
@@ -135,7 +135,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                   image: DecorationImage(
                                     fit:BoxFit.cover,
                                     image: NetworkImage(
-                                      AppConstants.BASE_URL+AppConstants.UPLOAD_URL+recommendedProduct.recommendedProductList[index].img!,
+                                      recommendedProduct.recommendedProductList[index].thumbnail!,
                                     ),
                                   )
                               ),
@@ -238,9 +238,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   color: index.isEven?Colors.blue:Colors.black26,
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: NetworkImage(
-                          AppConstants.BASE_URL+AppConstants.UPLOAD_URL+popularProduct.img!
-                      ))
+                    image: NetworkImage(
+                      popularProduct.thumbnail ?? '', // null safe
+                    ),
+                  )
               ),
             ),
           ),
