@@ -74,7 +74,7 @@ class CartPage extends StatelessWidget {
 
                       String imageUrl =
                           product?.thumbnail ??
-                              product?.img ??
+                              product?.thumbnail ??
                               cartList[index].img ??
                               "";
 
