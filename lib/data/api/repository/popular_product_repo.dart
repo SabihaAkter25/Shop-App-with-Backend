@@ -1,13 +1,13 @@
 import 'package:get/get.dart';
-import 'package:shop_app_with_backend/data/api/api_client.dart';
-import 'package:shop_app_with_backend/utils/app_constants.dart';
-
+import 'package:supabase_flutter/supabase_flutter.dart';
 class PopularProductRepo extends GetxService {
-  final ApiClient apiClient;
+  final supabase = Supabase.instance.client;
 
-  PopularProductRepo({required this.apiClient});
+  Future<List<dynamic>> getPopularProductList() async {
+    final response = await supabase
+        .from('products')
+        .select();
 
-  Future<Response> getPopularProductList() async {
-    return await apiClient.getData(AppConstants.POPULAR_PRODUCTS_URI);
+    return response;
   }
 }
