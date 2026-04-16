@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
+import '../../controller/popular_product_controller.dart';
+import '../../controller/recommended_product_controller.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/small_text.dart';
 import 'food_page_body.dart';
@@ -12,9 +16,14 @@ class MainFoodPage extends StatefulWidget {
 }
 
 class _MainFoodPageState extends State<MainFoodPage> {
+  Future<void> _loadResources()async {
+   await Get.find<PopularProductController>().getPopularProductList();
+   await Get.find<RecommendedProductController>().getRecommendedProductList();
+  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return RefreshIndicator(
+        child: Scaffold(
 
         body:  Column(
           children: [
@@ -49,9 +58,11 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 ],
               ),
             ),
-            const Expanded(child: SingleChildScrollView(child: FoodPageBody(),))
+            Expanded(
+                child: SingleChildScrollView(
+                child: const FoodPageBody()))
           ],
         )
-    );
+    ), onRefresh: _loadResources);
   }
 }
