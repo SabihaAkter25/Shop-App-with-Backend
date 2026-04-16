@@ -87,7 +87,7 @@ class RecommendedFoodDetail extends StatelessWidget {
 
                     width: double.maxFinite,
                     child:Center(
-                        child: Bigtext(text: product.name!,size: Dimentions.font26,)),
+                        child: Bigtext(text: product.title!,size: Dimentions.font26,)),
                   )
               ),
               backgroundColor:  Colors.orange,
