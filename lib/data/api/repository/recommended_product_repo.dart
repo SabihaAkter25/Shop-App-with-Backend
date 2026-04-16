@@ -1,13 +1,15 @@
 import 'package:get/get.dart';
-import 'package:shop_app_with_backend/data/api/api_client.dart';
-import 'package:shop_app_with_backend/utils/app_constants.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class RecommendedProductRepo extends GetxService {
-  final ApiClient apiClient;
+  final supabase = Supabase.instance.client;
 
-  RecommendedProductRepo({required this.apiClient});
+  Future<List<dynamic>> getRecommendedProductList() async {
+    final response = await supabase
+        .from('products')
+        .select()
+        .ilike('title', '%phone%');
 
-  Future<Response> getRecommendedProductList() async {
-    return await apiClient.getData(AppConstants.RECOMMENDED_PRODUCTS_URI);
+    return response;
   }
 }
