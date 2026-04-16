@@ -1,34 +1,29 @@
-import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../data/api/repository/recommended_product_repo.dart';
 import '../model/product_model.dart';
 
-class RecommendedProductController extends GetxController{
-  final RecommendedProductRepo recommendedProductRepo;
-  RecommendedProductController({required this.recommendedProductRepo});
+class RecommendedProductController extends GetxController {
 
-  List<ProductModel> _recommendedProductList=[];
-  List<ProductModel> get recommendedProductList =>_recommendedProductList;
+  final supabase = Supabase.instance.client;
+
+  List<ProductModel> _recommendedProductList = [];
+  List<ProductModel> get recommendedProductList => _recommendedProductList;
+
   bool _isloaded = false;
   bool get isloaded => _isloaded;
 
-  Future<void> getRecommendedProductList()async{
-    Response response = await recommendedProductRepo.getRecommendedProductList();
+  Future<void> getRecommendedProductList() async {
 
-    if(response.statusCode==200){
-print("reccooo");
-      _recommendedProductList=[];
-      _recommendedProductList.addAll(Product.fromJson(response.body).products);
-      _isloaded = true;
-      update();
-    }else{
-      print("Error fetching products: ${response.statusCode}");
+    final data = await supabase
+        .from('products')
+        .select();
 
-    }
+    _recommendedProductList = (data as List)
+        .map((e) => ProductModel.fromJson(e))
+        .toList();
+
+    _isloaded = true;
+    update();
   }
 }
-
-
-
-
-
