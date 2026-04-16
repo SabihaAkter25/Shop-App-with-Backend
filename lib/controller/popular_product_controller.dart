@@ -1,112 +1,81 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_app_with_backend/model/cart_model.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import '../data/api/repository/popular_product_repo.dart';
 import '../model/product_model.dart';
 import 'cart_controller.dart';
 
-class PopularProductController extends GetxController{
-  final PopularProductRepo popularProductRepo;
+class PopularProductController extends GetxController {
 
-  PopularProductController({required this.popularProductRepo});
-  List<ProductModel> _popularProductList=[];
+
+  final supabase = Supabase.instance.client;
+
+  List<ProductModel> _popularProductList = [];
   List<ProductModel> get popularProductList => _popularProductList;
-  bool _isLoaded=false;
+
+  bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
-  int _quantity=0;
-  int get quantity =>_quantity;
-  int _inCartItems=0;
+
+  int _quantity = 0;
+  int get quantity => _quantity;
+
+  int _inCartItems = 0;
   int get inCartItems => _inCartItems + _quantity;
+
   late CartController _cart;
-  @override
-  void onInit() {
-    super.onInit();
-    getPopularProductList();
-  }
+
   Future<void> getPopularProductList() async {
-    Response response = await popularProductRepo.getPopularProductList();
 
-    if (response.statusCode == 200) {
-      final data = response.body is String
-          ? jsonDecode(response.body)
-          : response.body;
 
-      final product = Product.fromJson(data);
+    final data = await supabase
+        .from('products')
+        .select()
+        .limit(15);
 
-      _popularProductList = product.products;
-      _isLoaded = true;
-      update();
+    _popularProductList = (data as List)
+        .map((e) => ProductModel.fromJson(e))
+        .toList();
 
-      print("Loaded products: ${_popularProductList.length}");
-    } else {
-      print("Error: ${response.statusCode}");
-    }
-  }
-  void setQuantity(bool isIncrement){
-    if(isIncrement){
-      // print("increment "+quantity.toString());
-      _quantity= checkQuantity(_quantity+1);
-    }else{
-      _quantity=  checkQuantity(_quantity-1);
-    }
+    _isLoaded = true;
     update();
   }
-  int checkQuantity(int quantity){
-    if((_inCartItems+quantity)<0){
-      Get.snackbar("Item count", "You cant reduce more",
-        backgroundColor: Colors.tealAccent.shade700,
-        colorText: Colors.white,
-      );
-      if(_inCartItems>0){
-        _quantity=-_inCartItems;
-        return _quantity;
-      }
-      return 0;
-    }else if((_inCartItems+quantity) >20){
-      Get.snackbar("Item count", "You cant increase more",
-        backgroundColor: Colors.tealAccent.shade700,
-        colorText: Colors.white,
-      );
-      return 20;
-    }
-    return quantity;
-  }
 
-  void initProduct(ProductModel product, CartController cart){
-    _quantity=0;
-    _inCartItems=0;
-    _cart =cart;
-    var exist= false;
-    exist = _cart.existInCart(product);
+  // ===== UI required methods (KEEP THESE) =====
 
-    if(exist){
+  void initProduct(ProductModel product, CartController cart) {
+    _quantity = 0;
+    _inCartItems = 0;
+    _cart = cart;
+
+    bool exist = _cart.existInCart(product);
+
+    if (exist) {
       _inCartItems = _cart.getQuantity(product);
     }
-    //if exist
-    //get from storage _inCartItems=3
   }
 
-  void addItem(ProductModel product){
-    // if(quantity>0){
-    _cart.addItem(product, _quantity);
-    _quantity=0;
-    _inCartItems =_cart.getQuantity(product);
-
-    _cart.items.forEach((key,value){
-      // print("the id is "+value.id.toString()+"the quantity is "+value.quantity.toString());
-    });
+  void setQuantity(bool isIncrement) {
+    if (isIncrement) {
+      _quantity++;
+    } else {
+      _quantity--;
+    }
 
     update();
   }
 
-  int get totalItems{
-    return _cart.totalItems;
+  void addItem(ProductModel product) {
+    _cart.addItem(product, _quantity);
+    _quantity = 0;
+    _inCartItems = _cart.getQuantity(product);
+    update();
   }
 
-  List<CartModel>get getItems{
-    return _cart.getItems;
-  }
+  int get totalItems => _cart.totalItems;
+  List get getItems => _cart.getItems;
 }
 
 
