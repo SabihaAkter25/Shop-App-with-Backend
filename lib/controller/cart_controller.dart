@@ -41,14 +41,14 @@ class CartController extends GetxController {
         _items.putIfAbsent(product.id!, () {
           return CartModel(
             id: product.id,
-            name: product.name,
+            name: product.title,
             price: product.price,
             thumbnail: product.thumbnail,   // optional
             quantity: quantity,
             isExist: true,
             time: DateTime.now().toString(),
             product: product,
-            img: product.img,  //  MUST (VERY IMPORTANT)
+            img: product.thumbnail,  //  MUST (VERY IMPORTANT)
           );
         });
       } else {
