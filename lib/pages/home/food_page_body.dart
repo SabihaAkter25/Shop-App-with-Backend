@@ -38,11 +38,6 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
 
   @override
-  void   dispose(){
-    pageController.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     // print("current height is ${MediaQuery.of(context).size.height}");
 
@@ -51,7 +46,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       children: [
 
         // Slider section
-        GetBuilder<PopularProductController>(builder: (PopularProducts){ //PopularProducts এটা controller-এর current state ধরে রাখে। এই instance হচ্ছে dependency injection দিয়ে রেজিস্টার করা সেই controller (যেটা তুমি Get.lazyPut বা Get.put দিয়ে init করেছিলে)।
+        GetBuilder<PopularProductController>(
+            builder: (PopularProducts){ //PopularProducts এটা controller-এর current state ধরে রাখে। এই instance হচ্ছে dependency injection দিয়ে রেজিস্টার করা সেই controller (যেটা তুমি Get.lazyPut বা Get.put দিয়ে init করেছিলে)।
           return  PopularProducts.isLoaded? Container(
 
             height: Dimentions.PageView,
@@ -114,7 +110,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           return recommendedProduct.isloaded? Container(
               height: 1320,
               child:  ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: AlwaysScrollableScrollPhysics(),
                   itemCount: recommendedProduct.recommendedProductList.length,
                   itemBuilder: (context,index)
                   {
@@ -160,8 +156,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Bigtext(text: recommendedProduct.recommendedProductList[index].name!),
-                                      Smalltext(color: Colors.black54, text: "With chinese charachteristics"),
+                                      Bigtext(text: recommendedProduct.recommendedProductList[index].title!),
+                                      Smalltext(color: Colors.black54, text: recommendedProduct.recommendedProductList[index].price.toString()),
                                       Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
@@ -265,7 +261,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
               child: Container(
                 padding: const EdgeInsets.only(top:15, left: 20, right: 20 ),
-                child: AppColumn(text: popularProduct.name!,),
+                child: AppColumn(text: popularProduct.title!,),
 
               ),
             ),
