@@ -1,12 +1,10 @@
 class Product {
   int? totalSize;
-  int? typeId;
   int? offset;
   List<ProductModel> products;
 
   Product({
     this.totalSize,
-    this.typeId,
     this.offset,
     required this.products,
   });
@@ -14,13 +12,11 @@ class Product {
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
       totalSize: json['total'],
-      typeId: null,
       offset: json['skip'],
-
-
       products: json['products'] != null
           ? List<ProductModel>.from(
-          json['products'].map((x) => ProductModel.fromJson(x)))
+        json['products'].map((x) => ProductModel.fromJson(x)),
+      )
           : [],
     );
   }
@@ -28,68 +24,60 @@ class Product {
 
 class ProductModel {
   int? id;
-  String? name;
+  String? title; // 🔥 FIX: name → title (backend match)
   String? description;
   double? price;
-  double? stars;
-  String? img;// thumbnail
+  double? rating; // 🔥 FIX: stars → rating (clean naming)
   String? thumbnail;
-  List<String>? images;     // extra images
-  String? location;
-  String? createdAt;
-  String? updatedAt;
-  int? typeId;
+  List<String>? images;
+
+  // optional fields
+  String? category;
+  String? brand;
 
   ProductModel({
     this.id,
-    this.name,
+    this.title,
     this.description,
     this.price,
-    this.stars,
-    this.img,
+    this.rating,
+    this.thumbnail,
     this.images,
-    this.location,
-    this.createdAt,
-    this.updatedAt,
-    this.typeId,
-    this.thumbnail
+    this.category,
+    this.brand,
   });
 
-  ProductModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['title'];
-    description = json['description'];
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    return ProductModel(
+      id: json['id'],
+      title: json['title'],
+      description: json['description'],
 
-    // ✅ safe conversion
-    price = (json['price'] as num?)?.toDouble();
-    stars = (json['rating'] as num?)?.toDouble();
+      price: (json['price'] as num?)?.toDouble(),
+      rating: (json['rating'] as num?)?.toDouble(),
 
-    // 🔥 IMPORTANT (thumbnail)
+      thumbnail: json['thumbnail'],
 
-    thumbnail = json['thumbnail'];
-    // 🔥 images list
-    if (json['images'] != null) {
-      images = List<String>.from(json['images']);
-    }
-    location = null;
-    createdAt = null;
-    updatedAt = null;
-    typeId = null;
+      category: json['category'],
+      brand: json['brand'],
+
+      images: json['images'] != null
+          ? List<String>.from(json['images'])
+          : [],
+    );
   }
 
   Map<String, dynamic> toJson() {
     return {
       "id": id,
-      "title": name,
+      "title": title,
       "description": description,
       "price": price,
-      "rating": stars,
+      "rating": rating,
       "thumbnail": thumbnail,
       "images": images,
-      "location": location,
-      "createdAt": createdAt,
-      "updatedAt": updatedAt,
-      "typeId": typeId,
+      "category": category,
+      "brand": brand,
     };
   }
 }
